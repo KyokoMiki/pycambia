@@ -143,7 +143,6 @@ All parsing functions return a dictionary with the following structure:
 ```py
 {
     "success": bool,           # True if parsing succeeded, False otherwise
-    "file_path": str,          # Path to the parsed file (only for parse_file)
     "data": dict | None,       # Parsed log data (if success=True)
     "error": str | None        # Error message (if success=False)
 }
@@ -155,17 +154,10 @@ When `success` is `True`, the `data` field contains a comprehensive dictionary w
 
 ```py
 {
-    "evaluation_combined": [   # Scoring and evaluation results
-        {
-            "combined_score": str,     # Overall score (e.g., "100")
-            "evaluations": [...],      # Detailed evaluation breakdown
-            "evaluator": str           # Scoring system used (e.g., "OPS")
-        }
-    ],
-    "id": [int, ...],         # Unique identifier array
-    "parsed": {               # Main parsed log data
-        "encoding": str,      # File encoding (e.g., "UTF-16LE")
-        "parsed_logs": [      # Array of parsed log entries
+    "id": [int, ...],                 # Unique identifier byte array
+    "parsed": {                       # Main parsed log data
+        "encoding": str,              # File encoding (e.g., "UTF-16LE")
+        "parsed_logs": [              # Array of parsed log entries
             {
                 "ripper": str,                    # Ripper software (e.g., "Exact Audio Copy")
                 "ripper_version": str,            # Version (e.g., "1.6")
@@ -173,12 +165,22 @@ When `success` is `True`, the `data` field contains a comprehensive dictionary w
                     "artist": str,                # Album artist
                     "title": str                  # Album title
                 },
+                "language": str,                  # Log language
+                "read_offset": int | None,        # Read offset value
+                "combined_rw_offset": int | None, # Combined read/write offset
                 "drive": str,                     # CD drive model
-                "read_mode": str,                 # Read mode (e.g., "Secure")
-                "read_offset": int,               # Read offset value
+                "media_type": str,                # Media type (e.g., "CD")
                 "accurate_stream": str,           # Accurate stream setting
                 "defeat_audio_cache": str,        # Audio cache defeat setting
+                "use_c2": str,                    # C2 error correction setting
+                "overread": str,                  # Overread setting
+                "fill_silence": str,              # Fill silence setting
+                "delete_silence": str,            # Delete silence setting
+                "use_null_samples": str,          # Null samples setting
                 "test_and_copy": str,             # Test & copy mode
+                "normalize": str,                 # Normalize setting
+                "read_mode": str,                 # Read mode (e.g., "Secure")
+                "gap_handling": str,              # Gap handling method
                 "checksum": {                     # Overall checksum info
                     "calculated": str,            # Calculated checksum
                     "log": str,                   # Log checksum
@@ -189,8 +191,8 @@ When `success` is `True`, the `data` field contains a comprehensive dictionary w
                         "entries": [              # Track entries
                             {
                                 "track": int,     # Track number
-                                "start": float,   # Start time in seconds
-                                "length": float,  # Track length in seconds
+                                "start": str,     # Start time
+                                "length": str,    # Track length
                                 "start_sector": int,
                                 "end_sector": int
                             }
@@ -199,20 +201,27 @@ When `success` is `True`, the `data` field contains a comprehensive dictionary w
                     "freedb": {"hash": str, "url": str},
                     "accurip_tocid": {"hash": str, "url": str},
                     "ctdb_tocid": {"hash": str, "url": str},
-                    "mbz": {"hash": str, "url": str}
+                    "mbz": {"hash": str, "url": str},
+                    "gn": {"hash": str, "url": str},
+                    "mcdi": {"hash": str, "url": str}
                 },
                 "tracks": [                       # Individual track results
                     {
                         "num": int,               # Track number
+                        "is_range": bool,         # Whether track is a range
                         "aborted": bool,          # Whether extraction was aborted
-                        "extraction_speed": float, # Extraction speed multiplier
-                        "peak_level": float,      # Peak audio level (0.0-1.0)
                         "filenames": [str],       # Output file paths
+                        "peak_level": float | None, # Peak audio level (0.0-1.0)
+                        "pregap_length": str | None, # Pregap length if present
+                        "extraction_speed": float | None, # Extraction speed multiplier
+                        "gain": float | None,     # Track gain
+                        "preemphasis": bool | None, # Preemphasis flag
                         "test_and_copy": {        # Test & copy verification
                             "test_hash": str,     # Test pass hash
                             "copy_hash": str,     # Copy pass hash
                             "integrity": str      # Match status
                         },
+                        "errors": dict,           # Any extraction errors
                         "ar_info": [              # AccurateRip information
                             {
                                 "status": str,    # Match status
@@ -224,14 +233,26 @@ When `success` is `True`, the `data` field contains a comprehensive dictionary w
                                 "sign": str,      # AccurateRip signature
                                 "version": int    # AccurateRip version
                             }
-                        ],
-                        "errors": dict,           # Any extraction errors
-                        "pregap_length": float | None  # Pregap length if present
+                        ]
                     }
-                ]
+                ],
+                "id3_enabled": str,               # ID3 tagging setting
+                "audio_encoder": [str]            # Audio encoder information
             }
         ]
-    }
+    },
+    "evaluation_combined": [          # Scoring and evaluation results
+        {
+            "evaluator": str,             # Scoring system used (e.g., "OPS", "RED", "Cambia")
+            "combined_score": str,        # Overall score (e.g., "100")
+            "evaluations": [              # Detailed evaluation breakdown
+                {
+                    "score": str,         # Individual evaluation score
+                    "evaluation_units": [...] # Detailed scoring units
+                }
+            ]
+        }
+    ]
 }
 ```
 

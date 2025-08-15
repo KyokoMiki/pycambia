@@ -3,12 +3,11 @@ use std::io::Read;
 use std::path::PathBuf;
 use cambia_core::handler::parse_log_bytes;
 
-#[cfg(feature = "python")]
-use serde_json::Value;
+#[cfg(not(feature = "python"))]
+use crate::Args;
 
-// This function is only used in binary mode
-#[cfg(all(not(feature = "python"), not(target_os = "unknown")))]
-pub fn parse_file(filepath: &str, args: crate::Args) {
+#[cfg(not(feature = "python"))]
+pub fn parse_file(filepath: &str, args: Args) {
 	let mut raw: Vec<u8> = Vec::new();
 
 	let mut fh = OpenOptions::new().read(true).open(filepath).expect(
@@ -50,7 +49,7 @@ pub fn save_rip_log(root_path: PathBuf, id: &[u8], log_raw: &[u8]) {
 }
 /// Parse a file for Python bindings
 #[cfg(feature = "python")]
-pub fn parse_file_for_python(filepath: &str) -> Result<Value, String> {
+pub fn parse_file_for_python(filepath: &str) -> Result<cambia_core::response::CambiaResponse, String> {
     let mut raw: Vec<u8> = Vec::new();
 
     let mut fh = OpenOptions::new().read(true).open(filepath)
@@ -60,20 +59,16 @@ pub fn parse_file_for_python(filepath: &str) -> Result<Value, String> {
 
     let parsed = parse_log_bytes(Vec::new(), &raw)
         .map_err(|e| format!("Could not parse log: {:?}", e))?;
-    let json_value = serde_json::to_value(&parsed)
-        .map_err(|e| format!("Could not serialize to JSON: {}", e))?;
     
-    Ok(json_value)
+    Ok(parsed)
 }
 
 /// Parse content from string for Python bindings
 #[cfg(feature = "python")]
-pub fn parse_content_for_python(content: &str) -> Result<Value, String> {
+pub fn parse_content_for_python(content: &str) -> Result<cambia_core::response::CambiaResponse, String> {
     let raw = content.as_bytes().to_vec();
     let parsed = parse_log_bytes(Vec::new(), &raw)
         .map_err(|e| format!("Could not parse log: {:?}", e))?;
-    let json_value = serde_json::to_value(&parsed)
-        .map_err(|e| format!("Could not serialize to JSON: {}", e))?;
     
-    Ok(json_value)
+    Ok(parsed)
 }

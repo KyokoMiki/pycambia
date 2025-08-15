@@ -4,6 +4,8 @@ use pyo3::prelude::*;
 use pyo3::types::{PyDict, PyModule};
 #[cfg(feature = "python")]
 use pyo3::Bound;
+#[cfg(feature = "python")]
+use pythonize::pythonize;
 
 pub mod util;
 
@@ -14,35 +16,10 @@ pub struct Args {
 }
 
 #[cfg(feature = "python")]
-fn json_value_to_py(py: Python, value: &serde_json::Value) -> PyResult<PyObject> {
-    match value {
-        serde_json::Value::Null => Ok(py.None()),
-        serde_json::Value::Bool(b) => Ok(b.to_object(py)),
-        serde_json::Value::Number(n) => {
-            if let Some(i) = n.as_i64() {
-                Ok(i.to_object(py))
-            } else if let Some(f) = n.as_f64() {
-                Ok(f.to_object(py))
-            } else {
-                Ok(n.to_string().to_object(py))
-            }
-        }
-        serde_json::Value::String(s) => Ok(s.to_object(py)),
-        serde_json::Value::Array(arr) => {
-            let py_list = pyo3::types::PyList::empty_bound(py);
-            for item in arr {
-                py_list.append(json_value_to_py(py, item)?)?;
-            }
-            Ok(py_list.into())
-        }
-        serde_json::Value::Object(obj) => {
-            let py_dict = PyDict::new_bound(py);
-            for (key, value) in obj {
-                py_dict.set_item(key, json_value_to_py(py, value)?)?;
-            }
-            Ok(py_dict.into())
-        }
-    }
+fn cambia_response_to_py(py: Python, response: &cambia_core::response::CambiaResponse) -> PyResult<PyObject> {
+    pythonize(py, response)
+        .map(|obj| obj.into())
+        .map_err(|e| PyErr::new::<pyo3::exceptions::PyValueError, _>(format!("Conversion error: {}", e)))
 }
 
 /// Parse a CD ripping log file and return the parsed data as a Python dictionary
@@ -56,8 +33,7 @@ fn parse_log_file(py: Python, path: String) -> PyResult<PyObject> {
             let dict = PyDict::new_bound(py);
             
             dict.set_item("success", true)?;
-            dict.set_item("file_path", path)?;
-            dict.set_item("data", json_value_to_py(py, &data)?)?;
+            dict.set_item("data", cambia_response_to_py(py, &data)?)?;
             
             Ok(dict.into())
         }
@@ -80,7 +56,7 @@ fn parse_log_content(py: Python, content: String) -> PyResult<PyObject> {
         Ok(data) => {
             let dict = PyDict::new_bound(py);
             dict.set_item("success", true)?;
-            dict.set_item("data", json_value_to_py(py, &data)?)?;
+            dict.set_item("data", cambia_response_to_py(py, &data)?)?;
             Ok(dict.into())
         }
         Err(e) => {

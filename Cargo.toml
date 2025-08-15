@@ -12,7 +12,7 @@ default = ["server"]
 server = []
 experimental_rippers = ["cambia-core/experimental_rippers"]
 experimental_evaluators = ["cambia-core/experimental_evaluators"]
-python = ["pyo3/extension-module"]
+python = ["pyo3/extension-module", "pythonize"]
 
 [dependencies]
 cambia-core = { path = "cambia-core" }
@@ -44,6 +44,7 @@ rust-embed = { version = "8.5.0", features = [
 ] }
 axum-client-ip = "0.6.0"
 pyo3 = { version = "0.22", features = ["extension-module"], optional = true }
+pythonize = { version = "0.22", optional = true }
 
 [profile.release]
 panic = "abort"

@@ -4,6 +4,7 @@ use clap::Parser;
 use figlet_rs::FIGfont;
 #[cfg(feature = "server")]
 use server::CambiaServer;
+#[cfg(not(feature = "python"))]
 use crate::util::parse_file;
 
 #[cfg(feature = "server")]
@@ -47,7 +48,7 @@ pub async fn main() {
     run(args).await;
 }
 
-#[cfg(feature = "server")]
+#[cfg(all(feature = "server", not(feature = "python")))]
 async fn run(args: Args) {
     if let Some(path) = args.path.clone() {
         parse_file(&path, args);
@@ -59,10 +60,17 @@ async fn run(args: Args) {
     CambiaServer::new(args).start().await;
 }
 
-#[cfg(not(feature = "server"))]
+#[cfg(all(not(feature = "server"), not(feature = "python")))]
 async fn run(args: Args) {
     let path = &args.path.clone().expect("Path not provided.");
     parse_file(path, args);
+}
+
+#[cfg(feature = "python")]
+async fn run(_args: Args) {
+    // When python feature is enabled, this is a library, not a binary
+    // The main function should not be used
+    panic!("This binary should not be run when python feature is enabled");
 }
 
 fn init_logging(tracing: &str) {

@@ -23,3 +23,10 @@ Cargo.lock
 # End of https://www.toptal.com/developers/gitignore/api/rust
 .vscode/
 cambia-core/src/parser/eac_parser/translation_files/**/*.txt
+
+__pycache__/
+*.py[codz]
+*$py.class
+
+test_cambia.py
+example.py
