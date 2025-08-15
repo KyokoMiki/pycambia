@@ -1,5 +1,5 @@
 name: Build cambia
-on: 
+on:
   workflow_dispatch:
 
 jobs:
@@ -11,7 +11,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '21'
+          node-version: "21"
       - name: Install dependencies
         run: npm install
         working-directory: web
@@ -30,7 +30,25 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        include:
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+            name: linux-x64
+          - os: ubuntu-latest
+            target: aarch64-unknown-linux-gnu
+            name: linux-arm64
+          - os: windows-latest
+            target: x86_64-pc-windows-msvc
+            name: windows-x64
+          - os: windows-latest
+            target: aarch64-pc-windows-msvc
+            name: windows-arm64
+          - os: macos-latest
+            target: x86_64-apple-darwin
+            name: macos-x64
+          - os: macos-latest
+            target: aarch64-apple-darwin
+            name: macos-arm64
     steps:
       - uses: actions/checkout@v4
       - name: Download static site files
@@ -39,10 +57,43 @@ jobs:
           name: webui
           path: web/build
       - uses: dtolnay/rust-toolchain@stable
+      - name: Add Rust target
+        run: rustup target add ${{ matrix.target }}
+
+      - name: Install cross-compilation dependencies (Linux ARM64)
+        if: matrix.target == 'aarch64-unknown-linux-gnu'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-aarch64-linux-gnu
+          echo "CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER=aarch64-linux-gnu-gcc" >> $GITHUB_ENV
+
       - name: Build w/ experimental rippers
-        run: cargo build --release --features experimental_rippers
+        run: |
+          cargo build --release --target ${{ matrix.target }} --features experimental_rippers
+          mv target/${{ matrix.target }}/release/cambia${{ matrix.os == 'windows-latest' && '.exe' || '' }} target/${{ matrix.target }}/release/cambia-${{ matrix.name }}${{ matrix.os == 'windows-latest' && '.exe' || '' }}
+
       - name: Upload binaries
         uses: actions/upload-artifact@v4
         with:
-          name: cambia-${{ matrix.os }}
-          path: target/release/cambia${{ matrix.os == 'windows-latest' && '.exe' || '' }}
+          name: cambia-${{ matrix.name }}
+          path: target/${{ matrix.target }}/release/cambia-${{ matrix.name }}${{ matrix.os == 'windows-latest' && '.exe' || '' }}
+
+  release:
+    name: Create Release
+    needs: cargo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download All Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: cambia-*
+          merge-multiple: true
+          path: ./binaries
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./binaries/**
+          tag_name: v1.0.${{ github.run_number }}
+          name: Release v1.0.${{ github.run_number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

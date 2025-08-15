@@ -68,4 +68,23 @@ pub fn translate_log_bytes(log_raw: Vec<u8>) -> Result<String, CambiaError> {
     }
 }
 
+/// Get list of supported ripper formats based on enabled features
+pub fn get_supported_rippers() -> Vec<String> {
+    let mut rippers = Vec::new();
+    
+    #[cfg(feature = "eac")]
+    rippers.push("eac".to_string());
+    
+    #[cfg(feature = "xld")]
+    rippers.push("xld".to_string());
+    
+    #[cfg(feature = "whipper")]
+    rippers.push("whipper".to_string());
+    
+    #[cfg(feature = "cueripper")]
+    rippers.push("cueripper".to_string());
+    
+    rippers
+}
+
 

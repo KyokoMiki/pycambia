@@ -1,13 +1,18 @@
 [package]
-name = "cambia"
+name = "pycambia"
 version = "0.1.0"
 edition = "2021"
+
+[lib]
+name = "cambia"
+crate-type = ["cdylib", "rlib"]
 
 [features]
 default = ["server"]
 server = []
 experimental_rippers = ["cambia-core/experimental_rippers"]
 experimental_evaluators = ["cambia-core/experimental_evaluators"]
+python = ["pyo3/extension-module"]
 
 [dependencies]
 cambia-core = { path = "cambia-core" }
@@ -16,7 +21,12 @@ tracing-subscriber = "0.3.18"
 figlet-rs = "0.1.5"
 tracing = "0.1.40"
 hex = "0.4.3"
-tower-http = { version = "0.5.2", features = ["compression-full", "cors", "decompression-full", "trace"] }
+tower-http = { version = "0.5.2", features = [
+    "compression-full",
+    "cors",
+    "decompression-full",
+    "trace",
+] }
 futures = "0.3.30"
 serde = { version = "1.0.210", features = ["derive"] }
 serde_json = "1.0.128"
@@ -26,8 +36,14 @@ clap = { version = "4.5.17", features = ["env", "derive"] }
 axum = { version = "0.7.5", features = ["ws"] }
 axum-extra = { version = "0.9.3", features = ["typed-header"] }
 axum-msgpack = "0.4.0"
-rust-embed = { version = "8.5.0", features = ["axum", "debug-embed", "compression", "include-exclude"] }
+rust-embed = { version = "8.5.0", features = [
+    "axum",
+    "debug-embed",
+    "compression",
+    "include-exclude",
+] }
 axum-client-ip = "0.6.0"
+pyo3 = { version = "0.22", features = ["extension-module"], optional = true }
 
 [profile.release]
 panic = "abort"

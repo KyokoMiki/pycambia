@@ -1,0 +1,70 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "pycambia"
+requires-python = ">=3.8"
+dynamic = ["version"]
+description = "Python wrapper for CD rip log parser cambia"
+readme = "README.md"
+license = { file = "LICENSE" }
+keywords = ["rust", "logchecker", "eac", "xld", "whipper"]
+authors = [
+    { name = "KyokoMiki <161209740+KyokoMiki@users.noreply.github.com>" },
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Rust",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+homepage = "https://github.com/KyokoMiki/pycambia"
+documentation = "https://github.com/KyokoMiki/pycambia#readme"
+repository = "https://github.com/KyokoMiki/pycambia"
+issues = "https://github.com/KyokoMiki/pycambia/issues"
+
+[tool.maturin]
+python-source = "python"
+module-name = "cambia._cambia"
+features = ["python", "experimental_rippers"]
+
+[tool.maturin.sdist]
+include = [
+    "Cargo.toml",
+    "Cargo.lock",
+    "src/**/*",
+    "cambia-core/**/*",
+    "simple-text-decode/**/*",
+    "accuraterip-drive-db/**/*",
+    "python/**/*",
+    "README.md",
+    "LICENSE",
+]
+
+[tool.ruff]
+target-version = "py38"
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
