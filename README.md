@@ -384,7 +384,7 @@ if result["success"]:
 1. Install [Python 3.8+](https://www.python.org/downloads/)
 1. Install [maturin](https://github.com/PyO3/maturin)
    ```sh
-   pip install maturin
+   uv tool install maturin
    ```
 1. Clone this repository and navigate to it via command line
    ```sh
@@ -402,11 +402,6 @@ if result["success"]:
 1. Run tests
    ```sh
    pytest
-   ```
-1. Format code
-   ```sh
-   ruff check .
-   ruff format .
    ```
 
 ### Building for distribution

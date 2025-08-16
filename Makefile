@@ -10,7 +10,6 @@ help:
 	@echo "  dev-install  - Install in development mode"
 	@echo "  install      - Install from wheel files"
 	@echo "  test         - Run tests"
-	@echo "  example      - Run example"
 	@echo "  clean        - Clean build files"
 	@echo "  publish      - Publish to PyPI"
 	@echo ""
@@ -28,10 +27,7 @@ install: build-release
 	pip install target/wheels/pycambia-0.1.0-*.whl --force-reinstall
 
 test:
-	python test_cambia.py
-
-example:
-	python example.py
+	pytest
 
 clean:
 	cargo clean
