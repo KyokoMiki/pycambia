@@ -84,5 +84,6 @@ fn _cambia(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(parse_log_file, m)?)?;
     m.add_function(wrap_pyfunction!(parse_log_content, m)?)?;
     m.add_function(wrap_pyfunction!(get_supported_rippers, m)?)?;
+    m.add("__version__", env!("CARGO_PKG_VERSION"))?;
     Ok(())
 }

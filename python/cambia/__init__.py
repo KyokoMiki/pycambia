@@ -6,7 +6,13 @@ Use this module to parse and score CD rip logs from various rippers.
 
 from ._cambia import get_supported_rippers, parse_log_content, parse_log_file
 
-__version__ = "0.1.0"
+# Version is automatically set by maturin from Cargo.toml
+try:
+    from ._cambia import __version__
+except ImportError:
+    # Fallback version if import fails
+    __version__ = "unknown"
+
 __all__ = ["parse_log_file", "parse_log_content", "get_supported_rippers", "LogParser"]
 
 

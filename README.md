@@ -1,5 +1,10 @@
 # pycambia
 
+[![PyPI version](https://badgen.net/pypi/v/pycambia)](https://pypi.org/project/pycambia/)
+[![PyPI - Python Version](https://badgen.net/pypi/python/pycambia)](https://pypi.org/project/pycambia/)
+[![CI](https://github.com/KyokoMiki/pycambia/actions/workflows/python-package.yml/badge.svg)](https://github.com/KyokoMiki/pycambia/actions/workflows/python-package.yml)
+[![License: MIT](https://badgen.net/github/license/KyokoMiki/pycambia)](https://opensource.org/licenses/MIT)
+
 Python wrapper for compact disc ripper log checking utility [cambia](https://github.com/arg274/cambia) (written in Rust). Use `pycambia` to parse and score CD rip logs from various rippers.
 
 - [Installation](#installation)

@@ -7,10 +7,10 @@ def parse_log_file(path: str) -> dict[str, Any]:
     Parse a CD ripping log file and return the parsed data.
 
     Args:
-        path: Path to the log file
+        path (str): Path to the log file
 
     Returns:
-        Dictionary with keys: 'success' (bool), 'data' (dict|None), 'error' (str|None)
+        dict: Dictionary containing 'success' (bool), 'data' (dict or None), and 'error' (str or None)
     """
     ...
 
@@ -19,10 +19,10 @@ def parse_log_content(content: str) -> dict[str, Any]:
     Parse log content from a string.
 
     Args:
-        content: Log file content as string
+        content (str): Log file content as string
 
     Returns:
-        Dictionary with keys: 'success' (bool), 'data' (dict|None), 'error' (str|None)
+        dict: Dictionary containing 'success' (bool), 'data' (dict or None), and 'error' (str or None)
     """
     ...
 
@@ -31,6 +31,6 @@ def get_supported_rippers() -> list[str]:
     Get list of supported CD ripper log types.
 
     Returns:
-        List of supported CD ripper type names
+        list[str]: List of supported CD ripper type names
     """
     ...
