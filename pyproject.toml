@@ -4,7 +4,7 @@ build-backend = "maturin"
 
 [project]
 name = "pycambia"
-requires-python = ">=3.9"
+requires-python = ">=3.8"
 dynamic = ["version"]
 description = "Python wrapper for CD rip log parser cambia"
 readme = "README.md"
@@ -16,7 +16,7 @@ authors = [
 classifiers = [
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-
+    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -51,7 +51,8 @@ include = [
 ]
 
 [tool.ruff]
-target-version = "py39"
+line-length = 120
+target-version = "py38"
 
 [tool.ruff.lint]
 select = [

@@ -10,7 +10,7 @@ def parse_log_file(path: str) -> dict[str, Any]:
         path: Path to the log file
 
     Returns:
-        Dictionary containing parsed data or error information
+        Dictionary with keys: 'success' (bool), 'data' (dict|None), 'error' (str|None)
     """
     ...
 
@@ -22,7 +22,7 @@ def parse_log_content(content: str) -> dict[str, Any]:
         content: Log file content as string
 
     Returns:
-        Dictionary containing parsed data or error information
+        Dictionary with keys: 'success' (bool), 'data' (dict|None), 'error' (str|None)
     """
     ...
 

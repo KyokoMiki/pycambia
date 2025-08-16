@@ -143,8 +143,8 @@ All parsing functions return a dictionary with the following structure:
 ```py
 {
     "success": bool,           # True if parsing succeeded, False otherwise
-    "data": dict | None,       # Parsed log data (if success=True)
-    "error": str | None        # Error message (if success=False)
+    "data": dict | None,       # Parsed log data (if success=True), None otherwise
+    "error": str | None        # Error message (if success=False), None otherwise
 }
 ```
 
@@ -381,7 +381,7 @@ if result["success"]:
 ## Development
 
 1. Install [Rust](https://www.rust-lang.org/tools/install)
-1. Install [Python 3.9+](https://www.python.org/downloads/)
+1. Install [Python 3.8+](https://www.python.org/downloads/)
 1. Install [maturin](https://github.com/PyO3/maturin)
    ```sh
    uv tool install maturin

@@ -38,8 +38,10 @@ class TestCambiaBasicFunctions:
 
         assert isinstance(result, dict)
         assert "success" in result
-        assert result["success"] is False
+        assert "data" in result
         assert "error" in result
+        assert result["success"] is False
+        assert result["data"] is None
         assert isinstance(result["error"], str)
 
     def test_parse_content_invalid_content(self):
@@ -48,8 +50,11 @@ class TestCambiaBasicFunctions:
         result = cambia.parse_content(invalid_content)
 
         assert isinstance(result, dict)
-        assert result["success"] is False
+        assert "success" in result
+        assert "data" in result
         assert "error" in result
+        assert result["success"] is False
+        assert result["data"] is None
         assert isinstance(result["error"], str)
 
     def test_parse_file_nonexistent(self):
@@ -57,8 +62,11 @@ class TestCambiaBasicFunctions:
         result = cambia.parse_file("nonexistent_file.log")
 
         assert isinstance(result, dict)
-        assert result["success"] is False
+        assert "success" in result
+        assert "data" in result
         assert "error" in result
+        assert result["success"] is False
+        assert result["data"] is None
         assert isinstance(result["error"], str)
 
 
@@ -77,14 +85,22 @@ class TestCambiaLogParser:
         result = cambia.LogParser.parse_content("")
 
         assert isinstance(result, dict)
+        assert "success" in result
+        assert "data" in result
+        assert "error" in result
         assert result["success"] is False
+        assert result["data"] is None
 
     def test_logparser_parse_file_nonexistent(self):
         """Test LogParser.parse_file() static method"""
         result = cambia.LogParser.parse_file("nonexistent.log")
 
         assert isinstance(result, dict)
+        assert "success" in result
+        assert "data" in result
+        assert "error" in result
         assert result["success"] is False
+        assert result["data"] is None
 
     def test_logparser_instance_methods(self):
         """Test LogParser instance methods"""
@@ -110,14 +126,14 @@ class TestCambiaWithTestFiles:
 
         assert isinstance(result, dict)
         assert "success" in result
+        assert "data" in result
+        assert "error" in result
 
         # If parsing succeeds, check data structure
         if result["success"]:
-            assert "data" in result
             assert result["data"] is not None
+            assert result["error"] is None
             assert isinstance(result["data"], dict)
-        else:
-            assert "error" in result
 
             # Check basic data structure
             data = result["data"]
@@ -133,6 +149,10 @@ class TestCambiaWithTestFiles:
             assert "ripper" in log_entry
             assert "tracks" in log_entry
             assert isinstance(log_entry["tracks"], list)
+        else:
+            assert result["data"] is None
+            assert result["error"] is not None
+            assert isinstance(result["error"], str)
 
     def test_parse_xld_log_file(self, test_files_dir):
         """Test parsing XLD log file"""
@@ -145,19 +165,23 @@ class TestCambiaWithTestFiles:
 
         assert isinstance(result, dict)
         assert "success" in result
+        assert "data" in result
+        assert "error" in result
 
         # If parsing succeeds, check XLD-specific data
         if result["success"]:
+            assert result["data"] is not None
+            assert result["error"] is None
             data = result["data"]
             log_entry = data["parsed"]["parsed_logs"][0]
 
             # XLD-specific checks
             assert "ripper" in log_entry
             if "ripper" in log_entry:
-                assert (
-                    "xld" in log_entry["ripper"].lower()
-                    or "x lossless decoder" in log_entry["ripper"].lower()
-                )
+                assert "xld" in log_entry["ripper"].lower() or "x lossless decoder" in log_entry["ripper"].lower()
+        else:
+            assert result["data"] is None
+            assert result["error"] is not None
 
     def test_parse_eac_log_content(self, test_files_dir):
         """Test parsing EAC log content"""
@@ -173,6 +197,8 @@ class TestCambiaWithTestFiles:
 
         assert isinstance(result, dict)
         assert "success" in result
+        assert "data" in result
+        assert "error" in result
 
 
 class TestCambiaReturnFormat:
@@ -194,17 +220,21 @@ class TestCambiaReturnFormat:
             # Check basic structure
             assert isinstance(result, dict)
             assert "success" in result
+            assert "data" in result
+            assert "error" in result
 
             # Check types
             assert isinstance(result["success"], bool)
 
-            # If failed, error should be present and be a string
-            if not result["success"]:
-                assert "error" in result
+            # All results should have both data and error fields
+            if result["success"]:
+                assert result["data"] is not None
+                assert result["error"] is None
+            else:
+                assert result["data"] is None
+                assert result["error"] is not None
                 assert isinstance(result["error"], str)
                 assert len(result["error"]) > 0
-            else:
-                assert "data" in result
 
     def test_successful_parse_structure(self, test_files_dir):
         """Test data structure when parsing succeeds"""
@@ -219,7 +249,9 @@ class TestCambiaReturnFormat:
                 if result["success"]:
                     # Check data structure when parsing succeeds
                     assert "data" in result
+                    assert "error" in result
                     assert result["data"] is not None
+                    assert result["error"] is None
                     assert isinstance(result["data"], dict)
 
                     data = result["data"]
@@ -240,9 +272,7 @@ class TestCambiaReturnFormat:
                         # Check basic fields in log entry
                         expected_fields = ["ripper", "tracks"]
                         for field in expected_fields:
-                            assert field in log_entry, (
-                                f"Missing field in log entry: {field}"
-                            )
+                            assert field in log_entry, f"Missing field in log entry: {field}"
 
                     # Check evaluation_combined structure
                     evaluation = data["evaluation_combined"]
@@ -263,8 +293,12 @@ class TestCambiaEdgeCases:
 
         assert isinstance(result, dict)
         assert "success" in result
+        assert "data" in result
+        assert "error" in result
         # Expected to fail, but should not crash
         assert result["success"] is False
+        assert result["data"] is None
+        assert result["error"] is not None
 
     def test_parse_content_very_long_string(self):
         """Test very long string"""
@@ -272,7 +306,12 @@ class TestCambiaEdgeCases:
         result = cambia.parse_content(long_content)
 
         assert isinstance(result, dict)
+        assert "success" in result
+        assert "data" in result
+        assert "error" in result
         assert result["success"] is False
+        assert result["data"] is None
+        assert result["error"] is not None
 
     def test_parse_file_with_special_characters_in_path(self):
         """Test paths with special characters"""
@@ -285,9 +324,12 @@ class TestCambiaEdgeCases:
         for path in special_paths:
             result = cambia.parse_file(path)
             assert isinstance(result, dict)
-            assert (
-                result["success"] is False
-            )  # File doesn't exist, but should not crash
+            assert "success" in result
+            assert "data" in result
+            assert "error" in result
+            assert result["success"] is False  # File doesn't exist, but should not crash
+            assert result["data"] is None
+            assert result["error"] is not None
 
     def test_temporary_file_parsing(self):
         """Test temporary file parsing"""
@@ -299,6 +341,15 @@ class TestCambiaEdgeCases:
             result = cambia.parse_file(tmp_path)
             assert isinstance(result, dict)
             assert "success" in result
+            assert "data" in result
+            assert "error" in result
+            # Should have consistent format regardless of success/failure
+            if result["success"]:
+                assert result["data"] is not None
+                assert result["error"] is None
+            else:
+                assert result["data"] is None
+                assert result["error"] is not None
         finally:
             os.unlink(tmp_path)
 

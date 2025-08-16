@@ -24,7 +24,7 @@ class LogParser:
             file_path (str): Path to the log file
 
         Returns:
-            dict: Parsed log data with success status and data/error information
+            dict: Dictionary with keys: 'success' (bool), 'data' (dict|None), 'error' (str|None)
         """
         return parse_log_file(file_path)
 
@@ -37,7 +37,7 @@ class LogParser:
             content (str): Log file content as string
 
         Returns:
-            dict: Parsed log data with success status and data/error information
+            dict: Dictionary with keys: 'success' (bool), 'data' (dict|None), 'error' (str|None)
         """
         return parse_log_content(content)
 
@@ -54,12 +54,22 @@ class LogParser:
 
 # Convenience functions for direct use
 def parse_file(file_path: str) -> dict:
-    """Parse a log file from disk."""
+    """
+    Parse a log file from disk.
+
+    Returns:
+        dict: Dictionary with keys: 'success' (bool), 'data' (dict|None), 'error' (str|None)
+    """
     return LogParser.parse_file(file_path)
 
 
 def parse_content(content: str) -> dict:
-    """Parse log content from a string."""
+    """
+    Parse log content from a string.
+
+    Returns:
+        dict: Dictionary with keys: 'success' (bool), 'data' (dict|None), 'error' (str|None)
+    """
     return LogParser.parse_content(content)
 
 

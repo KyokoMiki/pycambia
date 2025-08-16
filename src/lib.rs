@@ -28,22 +28,22 @@ fn cambia_response_to_py(py: Python, response: &cambia_core::response::CambiaRes
 fn parse_log_file(py: Python, path: String) -> PyResult<PyObject> {
     let result = util::parse_file_for_python(&path);
     
+    let dict = PyDict::new(py);
+    
     match result {
         Ok(data) => {
-            let dict = PyDict::new(py);
-            
             dict.set_item("success", true)?;
             dict.set_item("data", cambia_response_to_py(py, &data)?)?;
-            
-            Ok(dict.into())
+            dict.set_item("error", py.None())?;
         }
         Err(e) => {
-            let dict = PyDict::new(py);
             dict.set_item("success", false)?;
+            dict.set_item("data", py.None())?;
             dict.set_item("error", format!("{}", e))?;
-            Ok(dict.into())
         }
     }
+    
+    Ok(dict.into())
 }
 
 /// Parse log content from a string and return the parsed data
@@ -52,20 +52,22 @@ fn parse_log_file(py: Python, path: String) -> PyResult<PyObject> {
 fn parse_log_content(py: Python, content: String) -> PyResult<PyObject> {
     let result = util::parse_content_for_python(&content);
     
+    let dict = PyDict::new(py);
+    
     match result {
         Ok(data) => {
-            let dict = PyDict::new(py);
             dict.set_item("success", true)?;
             dict.set_item("data", cambia_response_to_py(py, &data)?)?;
-            Ok(dict.into())
+            dict.set_item("error", py.None())?;
         }
         Err(e) => {
-            let dict = PyDict::new(py);
             dict.set_item("success", false)?;
+            dict.set_item("data", py.None())?;
             dict.set_item("error", format!("{}", e))?;
-            Ok(dict.into())
         }
     }
+
+    Ok(dict.into())
 }
 
 /// Get supported log file formats
