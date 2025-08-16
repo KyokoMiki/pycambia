@@ -253,6 +253,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - name: Update Cargo.toml version from tag
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          pip install tomli tomli-w
+          python -c "import tomli,tomli_w,os;v=os.environ['GITHUB_REF'].split('/')[-1].lstrip('v');d=tomli.load(open('Cargo.toml','rb'));d['package']['version']=v;tomli_w.dump(d,open('Cargo.toml','wb'));print(f'Updated Cargo.toml version to {v}')"
       - name: Build sdist
         uses: PyO3/maturin-action@v1
         with:
@@ -282,11 +290,11 @@ jobs:
         uses: actions/attest-build-provenance@v2
         with:
           subject-path: "wheels-*/*"
-      - name: Publish to TestPyPI
+      - name: Publish to PyPI
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
         uses: PyO3/maturin-action@v1
         env:
-          MATURIN_PYPI_TOKEN: ${{ secrets.TEST_PYPI_API_TOKEN }}
+          MATURIN_PYPI_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
         with:
           command: upload
-          args: --non-interactive --skip-existing --repository-url=https://test.pypi.org/legacy/ wheels-*/*
+          args: --non-interactive --skip-existing wheels-*/*
