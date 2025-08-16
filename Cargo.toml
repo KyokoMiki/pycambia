@@ -43,8 +43,8 @@ rust-embed = { version = "8.5.0", features = [
     "include-exclude",
 ] }
 axum-client-ip = "0.6.0"
-pyo3 = { version = "0.22", features = ["extension-module"], optional = true }
-pythonize = { version = "0.22", optional = true }
+pyo3 = { version = "0.25", features = ["extension-module"], optional = true }
+pythonize = { version = "0.25", optional = true }
 
 [profile.release]
 panic = "abort"

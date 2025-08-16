@@ -30,7 +30,7 @@ fn parse_log_file(py: Python, path: String) -> PyResult<PyObject> {
     
     match result {
         Ok(data) => {
-            let dict = PyDict::new_bound(py);
+            let dict = PyDict::new(py);
             
             dict.set_item("success", true)?;
             dict.set_item("data", cambia_response_to_py(py, &data)?)?;
@@ -38,7 +38,7 @@ fn parse_log_file(py: Python, path: String) -> PyResult<PyObject> {
             Ok(dict.into())
         }
         Err(e) => {
-            let dict = PyDict::new_bound(py);
+            let dict = PyDict::new(py);
             dict.set_item("success", false)?;
             dict.set_item("error", format!("{}", e))?;
             Ok(dict.into())
@@ -54,13 +54,13 @@ fn parse_log_content(py: Python, content: String) -> PyResult<PyObject> {
     
     match result {
         Ok(data) => {
-            let dict = PyDict::new_bound(py);
+            let dict = PyDict::new(py);
             dict.set_item("success", true)?;
             dict.set_item("data", cambia_response_to_py(py, &data)?)?;
             Ok(dict.into())
         }
         Err(e) => {
-            let dict = PyDict::new_bound(py);
+            let dict = PyDict::new(py);
             dict.set_item("success", false)?;
             dict.set_item("error", format!("{}", e))?;
             Ok(dict.into())

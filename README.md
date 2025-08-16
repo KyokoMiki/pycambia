@@ -381,7 +381,7 @@ if result["success"]:
 ## Development
 
 1. Install [Rust](https://www.rust-lang.org/tools/install)
-1. Install [Python 3.8+](https://www.python.org/downloads/)
+1. Install [Python 3.9+](https://www.python.org/downloads/)
 1. Install [maturin](https://github.com/PyO3/maturin)
    ```sh
    uv tool install maturin
