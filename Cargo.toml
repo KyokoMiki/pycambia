@@ -1,0 +1,24 @@
+[package]
+name = "pycambia"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "cambia"
+crate-type = ["cdylib"]
+
+[features]
+default = ["experimental_rippers"]
+experimental_rippers = ["cambia-core/experimental_rippers"]
+
+[dependencies]
+cambia-core = { git = "https://github.com/arg274/cambia", branch = "master" }
+pyo3 = { version = "0.27", features = ["extension-module", "abi3-py310"] }
+pythonize = "0.27"
+serde_json = "1.0"
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+strip = true
+lto = "fat"

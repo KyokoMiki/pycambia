@@ -1,0 +1,54 @@
+name: Bump Version
+
+on:
+  release:
+    types:
+      - published
+
+env:
+  RAW_VERSION: ${{ github.event.release.tag_name }}
+
+jobs:
+  update-version:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Normalize version
+        run: echo "VERSION=${RAW_VERSION#v}" >> "$GITHUB_ENV"
+
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.BUMP_VERSION_TOKEN_ACTION }}
+
+      - name: Update version files
+        run: |
+          CARGO_FILE="Cargo.toml"
+
+          # Replace only the first occurrence (package version)
+          sed -i "0,/^version = \".*\"/{s/^version = \".*\"/version = \"${{ env.VERSION }}\"/}" "$CARGO_FILE"
+
+          # Sync Cargo.lock with the updated version
+          cargo metadata --format-version 1 > /dev/null
+
+      - name: Update CHANGELOG
+        uses: stefanzweifel/changelog-updater-action@v1
+        with:
+          release-notes: ${{ github.event.release.body }}
+          latest-version: ${{ env.RAW_VERSION }}
+
+      - name: Commit and push version update
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add Cargo.toml Cargo.lock CHANGELOG.md
+          git commit -m "chore: bump version to ${{ env.VERSION }} [skip ci]"
+          git push origin main
+
+      - name: Move tag to version bump commit
+        run: |
+          git tag -f "${{ env.RAW_VERSION }}"
+          git push origin "refs/tags/${{ env.RAW_VERSION }}" --force
