@@ -56,7 +56,7 @@ fn get_supported_rippers() -> PyResult<Vec<String>> {
 }
 
 /// A Python module implemented in Rust.
-#[pymodule]
+#[pymodule(gil_used = false)]
 fn _cambia(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(parse_log_file, m)?)?;
     m.add_function(wrap_pyfunction!(parse_log_content, m)?)?;
