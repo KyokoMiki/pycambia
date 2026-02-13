@@ -1,0 +1,550 @@
+Log created by: whipper 0.7.0 (internal logger)
+Log creation date: 2018-05-19T16:14:35Z
+
+Ripping phase information:
+  Drive: TSSTcorpDVDWBD SH-B123L  (revision SB04)
+  Defeat audio cache: Unknown
+  Read offset correction: +6
+  Overread into lead-out: No
+  Gap detection: cdrdao 1.2.3
+  CD-R detected: No
+
+CD metadata:
+  Album: Mystic Seaport Chanteymen - Songs of the Sailor
+  CDDB Disc ID: 6d0d7919
+  MusicBrainz Disc ID: gRT5x9OvnIFqv8eeSohpfEIB2gs-
+  MusicBrainz lookup url: https://musicbrainz.org/cdtoc/attach?toc=1+25+258838+210+11825+22019+27366+32354+35918+43847+54699+63753+70598+84679+94207+113774+125492+135379+145403+164351+171791+180381+182176+197699+209565+215396+222601+232674&tracks=25&id=gRT5x9OvnIFqv8eeSohpfEIB2gs-
+
+TOC:
+  01:
+    Start: 00:00:60
+    Length: 02:34:65
+    Start sector: 60
+    End sector: 11674
+
+  02:
+    Start: 02:35:50
+    Length: 02:15:69
+    Start sector: 11675
+    End sector: 21868
+
+  03:
+    Start: 04:51:44
+    Length: 01:11:22
+    Start sector: 21869
+    End sector: 27215
+
+  04:
+    Start: 06:02:66
+    Length: 01:06:38
+    Start sector: 27216
+    End sector: 32203
+
+  05:
+    Start: 07:09:29
+    Length: 00:47:39
+    Start sector: 32204
+    End sector: 35767
+
+  06:
+    Start: 07:56:68
+    Length: 01:45:54
+    Start sector: 35768
+    End sector: 43696
+
+  07:
+    Start: 09:42:47
+    Length: 02:24:52
+    Start sector: 43697
+    End sector: 54548
+
+  08:
+    Start: 12:07:24
+    Length: 02:00:54
+    Start sector: 54549
+    End sector: 63602
+
+  09:
+    Start: 14:08:03
+    Length: 01:31:20
+    Start sector: 63603
+    End sector: 70447
+
+  10:
+    Start: 15:39:23
+    Length: 03:07:56
+    Start sector: 70448
+    End sector: 84528
+
+  11:
+    Start: 18:47:04
+    Length: 02:07:03
+    Start sector: 84529
+    End sector: 94056
+
+  12:
+    Start: 20:54:07
+    Length: 04:20:67
+    Start sector: 94057
+    End sector: 113623
+
+  13:
+    Start: 25:14:74
+    Length: 02:36:18
+    Start sector: 113624
+    End sector: 125341
+
+  14:
+    Start: 27:51:17
+    Length: 02:11:62
+    Start sector: 125342
+    End sector: 135228
+
+  15:
+    Start: 30:03:04
+    Length: 02:13:49
+    Start sector: 135229
+    End sector: 145252
+
+  16:
+    Start: 32:16:53
+    Length: 04:12:48
+    Start sector: 145253
+    End sector: 164200
+
+  17:
+    Start: 36:29:26
+    Length: 01:39:15
+    Start sector: 164201
+    End sector: 171640
+
+  18:
+    Start: 38:08:41
+    Length: 01:54:40
+    Start sector: 171641
+    End sector: 180230
+
+  19:
+    Start: 40:03:06
+    Length: 00:23:70
+    Start sector: 180231
+    End sector: 182025
+
+  20:
+    Start: 40:27:01
+    Length: 03:26:73
+    Start sector: 182026
+    End sector: 197548
+
+  21:
+    Start: 43:53:74
+    Length: 02:38:16
+    Start sector: 197549
+    End sector: 209414
+
+  22:
+    Start: 46:32:15
+    Length: 01:17:56
+    Start sector: 209415
+    End sector: 215245
+
+  23:
+    Start: 47:49:71
+    Length: 01:36:05
+    Start sector: 215246
+    End sector: 222450
+
+  24:
+    Start: 49:26:01
+    Length: 02:14:23
+    Start sector: 222451
+    End sector: 232523
+
+  25:
+    Start: 51:40:24
+    Length: 05:48:64
+    Start sector: 232524
+    End sector: 258687
+
+Tracks:
+  01:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/01. Mystic Seaport Chanteymen - Randy Dandy-O.flac
+    Pre-gap length: 00:00:60
+    Peak level: 0.604126
+    Pre-emphasis: No
+    Extraction speed: 7.6 X
+    Extraction quality: 100.00 %
+    Test CRC: F0EFB4D6
+    Copy CRC: F0EFB4D6
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  02:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/02. Mystic Seaport Chanteymen - Cape Cod Girls.flac
+    Pre-gap length: 00:02:45
+    Peak level: 0.441406
+    Pre-emphasis: No
+    Extraction speed: 7.6 X
+    Extraction quality: 100.00 %
+    Test CRC: D1CBA17B
+    Copy CRC: D1CBA17B
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  03:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/03. Mystic Seaport Chanteymen - Hello Somebody.flac
+    Pre-gap length: 00:01:45
+    Peak level: 0.561676
+    Pre-emphasis: No
+    Extraction speed: 7.5 X
+    Extraction quality: 100.00 %
+    Test CRC: AB09D0B4
+    Copy CRC: AB09D0B4
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  04:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/04. Mystic Seaport Chanteymen - Heiland Laddie.flac
+    Pre-gap length: 00:01:45
+    Peak level: 0.453308
+    Pre-emphasis: No
+    Extraction speed: 7.1 X
+    Extraction quality: 100.00 %
+    Test CRC: B73D646A
+    Copy CRC: B73D646A
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  05:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/05. Mystic Seaport Chanteymen - Haul the Bowline.flac
+    Pre-gap length: 00:02:45
+    Peak level: 0.531616
+    Pre-emphasis: No
+    Extraction speed: 6.5 X
+    Extraction quality: 100.00 %
+    Test CRC: 1C0F597B
+    Copy CRC: 1C0F597B
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  06:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/06. Mystic Seaport Chanteymen - A Long Time Ago.flac
+    Pre-gap length: 00:02:45
+    Peak level: 0.598297
+    Pre-emphasis: No
+    Extraction speed: 8.6 X
+    Extraction quality: 100.00 %
+    Test CRC: A6B90E58
+    Copy CRC: A6B90E58
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  07:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/07. Mystic Seaport Chanteymen - Dead Horse.flac
+    Pre-gap length: 00:01:45
+    Peak level: 0.466187
+    Pre-emphasis: No
+    Extraction speed: 8.7 X
+    Extraction quality: 100.00 %
+    Test CRC: 72F49A13
+    Copy CRC: 72F49A13
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  08:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/08. Mystic Seaport Chanteymen - Roll the Old Chariot.flac
+    Pre-gap length: 00:02:45
+    Peak level: 0.604126
+    Pre-emphasis: No
+    Extraction speed: 9.2 X
+    Extraction quality: 100.00 %
+    Test CRC: 7C7E2A97
+    Copy CRC: 7C7E2A97
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  09:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/09. Mystic Seaport Chanteymen - Lowlands Low.flac
+    Pre-gap length: 00:02:45
+    Peak level: 0.604126
+    Pre-emphasis: No
+    Extraction speed: 9.3 X
+    Extraction quality: 100.00 %
+    Test CRC: 56581C1C
+    Copy CRC: 56581C1C
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  10:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/10. Mystic Seaport Chanteymen - Strike the Bell.flac
+    Pre-gap length: 00:02:45
+    Peak level: 0.604126
+    Pre-emphasis: No
+    Extraction speed: 10.4 X
+    Extraction quality: 100.00 %
+    Test CRC: 963AF0ED
+    Copy CRC: 963AF0ED
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  11:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/11. Mystic Seaport Chanteymen - Paddy on the Railway.flac
+    Pre-gap length: 00:01:45
+    Peak level: 0.500000
+    Pre-emphasis: No
+    Extraction speed: 9.7 X
+    Extraction quality: 100.00 %
+    Test CRC: 850911BE
+    Copy CRC: 850911BE
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  12:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/12. Mystic Seaport Chanteymen - Paddy Lay Back.flac
+    Pre-gap length: 00:01:45
+    Peak level: 0.604126
+    Pre-emphasis: No
+    Extraction speed: 11.2 X
+    Extraction quality: 100.00 %
+    Test CRC: A53DC064
+    Copy CRC: A53DC064
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  13:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/13. Mystic Seaport Chanteymen - Reuben Ranzo.flac
+    Pre-gap length: 00:01:45
+    Peak level: 0.470764
+    Pre-emphasis: No
+    Extraction speed: 10.5 X
+    Extraction quality: 95.19 %
+    Test CRC: 22ECD2F4
+    Copy CRC: 22ECD2F4
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  14:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/14. Mystic Seaport Chanteymen - Ebenezer.flac
+    Pre-gap length: 00:01:45
+    Peak level: 0.541229
+    Pre-emphasis: No
+    Extraction speed: 11.1 X
+    Extraction quality: 100.00 %
+    Test CRC: FB588C15
+    Copy CRC: FB588C15
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  15:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/15. Mystic Seaport Chanteymen - Johnny Come Down to Hilo.flac
+    Pre-gap length: 00:02:45
+    Peak level: 0.582642
+    Pre-emphasis: No
+    Extraction speed: 10.9 X
+    Extraction quality: 97.88 %
+    Test CRC: EAB5C72B
+    Copy CRC: EAB5C72B
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  16:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/16. Mystic Seaport Chanteymen - Santianno.flac
+    Pre-gap length: 00:01:45
+    Peak level: 0.549500
+    Pre-emphasis: No
+    Extraction speed: 12.1 X
+    Extraction quality: 95.37 %
+    Test CRC: 666B075B
+    Copy CRC: 666B075B
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  17:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/17. Mystic Seaport Chanteymen - Sallow Brown.flac
+    Pre-gap length: 00:01:45
+    Peak level: 0.480103
+    Pre-emphasis: No
+    Extraction speed: 11.2 X
+    Extraction quality: 100.00 %
+    Test CRC: C6EE8FBB
+    Copy CRC: C6EE8FBB
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  18:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/18. Mystic Seaport Chanteymen - John Cherokee.flac
+    Pre-gap length: 00:02:45
+    Peak level: 0.503082
+    Pre-emphasis: No
+    Extraction speed: 11.8 X
+    Extraction quality: 100.00 %
+    Test CRC: 7A3F2A03
+    Copy CRC: 7A3F2A03
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  19:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/19. Mystic Seaport Chanteymen - Dan Dan.flac
+    Pre-gap length: 00:01:45
+    Peak level: 0.604126
+    Pre-emphasis: No
+    Extraction speed: 7.8 X
+    Extraction quality: 99.42 %
+    Test CRC: D6C69A75
+    Copy CRC: D6C69A75
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  20:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/20. Mystic Seaport Chanteymen - Roll the Woodpile Down.flac
+    Pre-gap length: 00:01:45
+    Peak level: 0.604187
+    Pre-emphasis: No
+    Extraction speed: 12.9 X
+    Extraction quality: 100.00 %
+    Test CRC: 7BC449E6
+    Copy CRC: 7BC449E6
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  21:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/21. Mystic Seaport Chanteymen - Liverpool Judies.flac
+    Pre-gap length: 00:02:45
+    Peak level: 0.391632
+    Pre-emphasis: No
+    Extraction speed: 13.4 X
+    Extraction quality: 100.00 %
+    Test CRC: E23672B2
+    Copy CRC: E23672B2
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  22:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/22. Mystic Seaport Chanteymen - Bring 'Em Down.flac
+    Pre-gap length: 00:01:45
+    Peak level: 0.551971
+    Pre-emphasis: No
+    Extraction speed: 12.4 X
+    Extraction quality: 100.00 %
+    Test CRC: 4E2DAB73
+    Copy CRC: 4E2DAB73
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  23:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/23. Mystic Seaport Chanteymen - Boney.flac
+    Pre-gap length: 00:02:45
+    Peak level: 0.594818
+    Pre-emphasis: No
+    Extraction speed: 11.9 X
+    Extraction quality: 100.00 %
+    Test CRC: 97F0DEC6
+    Copy CRC: 97F0DEC6
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  24:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/24. Mystic Seaport Chanteymen - Haul Away Joe.flac
+    Pre-gap length: 00:01:45
+    Peak level: 0.604126
+    Pre-emphasis: No
+    Extraction speed: 13.3 X
+    Extraction quality: 100.00 %
+    Test CRC: 24788C25
+    Copy CRC: 24788C25
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+  25:
+    Filename: ./album/Mystic Seaport Chanteymen - Songs of the Sailor/25. Mystic Seaport Chanteymen - Rolling Down to Old Maui.flac
+    Pre-gap length: 00:01:45
+    Peak level: 0.477661
+    Pre-emphasis: No
+    Extraction speed: 15.2 X
+    Extraction quality: 100.00 %
+    Test CRC: 37FFBE1F
+    Copy CRC: 37FFBE1F
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Track not present in AccurateRip database
+    Status: Copy OK
+
+Conclusive status report:
+  AccurateRip summary: None of the tracks are present in the AccurateRip database
+  Health status: No errors occurred
+  EOF: End of status report
+
+SHA-256 hash: E9D37DD16A0DB4B868CAEBD51EDF42162607923D77FFAADE798B6C6853CE0F42

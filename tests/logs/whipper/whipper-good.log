@@ -1,0 +1,305 @@
+Log created by: whipper 0.9.0 (internal logger)
+Log creation date: 2020-02-13T20:37:23Z
+
+Ripping phase information:
+  Drive: HL-DT-STBD-RE  WH14NS40  (revision 1.03)
+  Extraction engine: cdparanoia III 10.2 libcdio 2.1.0 x86_64-pc-linux-gnu
+  Defeat audio cache: true
+  Read offset correction: 6
+  Overread into lead-out: false
+  Gap detection: cdrdao 1.2.4
+  CD-R detected: false
+
+CD metadata:
+  Release:
+    Artist: Voodoo Child
+    Title: Baby Monkey
+  CDDB Disc ID: b40fa00c
+  MusicBrainz Disc ID: BhUuYAOlGuSnOy4WiU8N8DtjA4E-
+  MusicBrainz lookup URL: https://musicbrainz.org/cdtoc/attach?toc=1+12+300214+150+21154+43160+66401+94450+123314+154133+177686+197728+216556+234070+258415&tracks=12&id=BhUuYAOlGuSnOy4WiU8N8DtjA4E-
+  MusicBrainz Release URL: https://musicbrainz.org/release/dc2c60f1-33bf-4b97-9387-583a56222cdd
+
+TOC:
+  1:
+    Start: 00:00:00
+    Length: 04:40:04
+    Start sector: 0
+    End sector: 21003
+
+  2:
+    Start: 04:40:04
+    Length: 04:53:31
+    Start sector: 21004
+    End sector: 43009
+
+  3:
+    Start: 09:33:35
+    Length: 05:09:66
+    Start sector: 43010
+    End sector: 66250
+
+  4:
+    Start: 14:43:26
+    Length: 06:13:74
+    Start sector: 66251
+    End sector: 94299
+
+  5:
+    Start: 20:57:25
+    Length: 06:24:64
+    Start sector: 94300
+    End sector: 123163
+
+  6:
+    Start: 27:22:14
+    Length: 06:50:69
+    Start sector: 123164
+    End sector: 153982
+
+  7:
+    Start: 34:13:08
+    Length: 05:14:03
+    Start sector: 153983
+    End sector: 177535
+
+  8:
+    Start: 39:27:11
+    Length: 04:27:17
+    Start sector: 177536
+    End sector: 197577
+
+  9:
+    Start: 43:54:28
+    Length: 04:11:03
+    Start sector: 197578
+    End sector: 216405
+
+  10:
+    Start: 48:05:31
+    Length: 03:53:39
+    Start sector: 216406
+    End sector: 233919
+
+  11:
+    Start: 51:58:70
+    Length: 05:24:45
+    Start sector: 233920
+    End sector: 258264
+
+  12:
+    Start: 57:23:40
+    Length: 09:17:24
+    Start sector: 258265
+    End sector: 300063
+
+Tracks:
+  1:
+    Filename: ./album/Voodoo Child - Baby Monkey (2004)/01. Voodoo Child - Gotta Be Loose in Your Mind.flac
+    Peak level: 0.999969
+    Pre-emphasis:
+    Extraction speed: 3.8 X
+    Extraction quality: 100.00 %
+    Test CRC: BB73CDC5
+    Copy CRC: BB73CDC5
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Found, exact match
+      Confidence: 1
+      Local CRC: 3C163093
+      Remote CRC: 3C163093
+    Status: Copy OK
+
+  2:
+    Filename: ./album/Voodoo Child - Baby Monkey (2004)/02. Voodoo Child - Minors.flac
+    Peak level: 0.999969
+    Pre-emphasis:
+    Extraction speed: 3.8 X
+    Extraction quality: 100.00 %
+    Test CRC: 486A3D47
+    Copy CRC: 486A3D47
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Found, exact match
+      Confidence: 1
+      Local CRC: 121C0355
+      Remote CRC: 121C0355
+    Status: Copy OK
+
+  3:
+    Filename: ./album/Voodoo Child - Baby Monkey (2004)/03. Voodoo Child - Take It Home.flac
+    Peak level: 0.999969
+    Pre-emphasis:
+    Extraction speed: 3.8 X
+    Extraction quality: 100.00 %
+    Test CRC: A8D818E9
+    Copy CRC: A8D818E9
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Found, exact match
+      Confidence: 1
+      Local CRC: CB0EFA85
+      Remote CRC: CB0EFA85
+    Status: Copy OK
+
+  4:
+    Filename: ./album/Voodoo Child - Baby Monkey (2004)/04. Voodoo Child - Light Is in Your Eyes.flac
+    Peak level: 0.999969
+    Pre-emphasis:
+    Extraction speed: 3.8 X
+    Extraction quality: 100.00 %
+    Test CRC: 5D6B6615
+    Copy CRC: 5D6B6615
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Found, exact match
+      Confidence: 1
+      Local CRC: 6EFCCBA4
+      Remote CRC: 6EFCCBA4
+    Status: Copy OK
+
+  5:
+    Filename: ./album/Voodoo Child - Baby Monkey (2004)/05. Voodoo Child - Electronics.flac
+    Peak level: 0.999969
+    Pre-emphasis:
+    Extraction speed: 3.7 X
+    Extraction quality: 100.00 %
+    Test CRC: 26DDF578
+    Copy CRC: 26DDF578
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Found, exact match
+      Confidence: 1
+      Local CRC: 45E429F8
+      Remote CRC: 45E429F8
+    Status: Copy OK
+
+  6:
+    Filename: ./album/Voodoo Child - Baby Monkey (2004)/06. Voodoo Child - Strings.flac
+    Peak level: 0.999969
+    Pre-emphasis:
+    Extraction speed: 3.8 X
+    Extraction quality: 100.00 %
+    Test CRC: DEFB3DEB
+    Copy CRC: DEFB3DEB
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Found, exact match
+      Confidence: 1
+      Local CRC: EC97E0E2
+      Remote CRC: EC97E0E2
+    Status: Copy OK
+
+  7:
+    Filename: ./album/Voodoo Child - Baby Monkey (2004)/07. Voodoo Child - Gone.flac
+    Peak level: 0.999969
+    Pre-emphasis:
+    Extraction speed: 3.8 X
+    Extraction quality: 100.00 %
+    Test CRC: 0C9D4414
+    Copy CRC: 0C9D4414
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Found, exact match
+      Confidence: 1
+      Local CRC: 60DC31BB
+      Remote CRC: 60DC31BB
+    Status: Copy OK
+
+  8:
+    Filename: ./album/Voodoo Child - Baby Monkey (2004)/08. Voodoo Child - Unh Yeah.flac
+    Peak level: 0.999969
+    Pre-emphasis:
+    Extraction speed: 3.7 X
+    Extraction quality: 100.00 %
+    Test CRC: ADC724C4
+    Copy CRC: ADC724C4
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Found, exact match
+      Confidence: 1
+      Local CRC: 11F40679
+      Remote CRC: 11F40679
+    Status: Copy OK
+
+  9:
+    Filename: ./album/Voodoo Child - Baby Monkey (2004)/09. Voodoo Child - Obscure.flac
+    Peak level: 0.999969
+    Pre-emphasis:
+    Extraction speed: 3.7 X
+    Extraction quality: 100.00 %
+    Test CRC: E9AF96D4
+    Copy CRC: E9AF96D4
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Found, exact match
+      Confidence: 1
+      Local CRC: E52E9CA1
+      Remote CRC: E52E9CA1
+    Status: Copy OK
+
+  10:
+    Filename: ./album/Voodoo Child - Baby Monkey (2004)/10. Voodoo Child - Last.flac
+    Peak level: 0.999969
+    Pre-emphasis:
+    Extraction speed: 3.7 X
+    Extraction quality: 100.00 %
+    Test CRC: 44BE12AF
+    Copy CRC: 44BE12AF
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Found, exact match
+      Confidence: 1
+      Local CRC: 5B69D2C7
+      Remote CRC: 5B69D2C7
+    Status: Copy OK
+
+  11:
+    Filename: ./album/Voodoo Child - Baby Monkey (2004)/11. Voodoo Child - Harpie.flac
+    Peak level: 0.999969
+    Pre-emphasis:
+    Extraction speed: 3.7 X
+    Extraction quality: 100.00 %
+    Test CRC: E9AC66A5
+    Copy CRC: E9AC66A5
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Found, exact match
+      Confidence: 1
+      Local CRC: 9184B419
+      Remote CRC: 9184B419
+    Status: Copy OK
+
+  12:
+    Filename: ./album/Voodoo Child - Baby Monkey (2004)/12. Voodoo Child - Synthesisers.flac
+    Peak level: 0.999969
+    Pre-emphasis:
+    Extraction speed: 3.8 X
+    Extraction quality: 100.00 %
+    Test CRC: 9FC01AFA
+    Copy CRC: 9FC01AFA
+    AccurateRip v1:
+      Result: Track not present in AccurateRip database
+    AccurateRip v2:
+      Result: Found, exact match
+      Confidence: 1
+      Local CRC: D6FA3D49
+      Remote CRC: D6FA3D49
+    Status: Copy OK
+
+Conclusive status report:
+  AccurateRip summary: All tracks accurately ripped
+  Health Status: No errors occurred
+  EOF: End of status report
+
+SHA-256 hash: 9C4F72F0E5BAB164BB13CC54794D763610B37E8C483C7A276AA1736CBA34DC63

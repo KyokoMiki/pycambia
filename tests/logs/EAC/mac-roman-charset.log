@@ -1,0 +1,168 @@
+Exact Audio Copy V1.0 beta 2 from 29. April 2011
+
+EAC extraction logfile from 26. July 2011, 22:45
+
+BUCK-TICK / TABOO
+
+Used drive  : HL-DT-STDVD+-RW GH30N   Adapter: 1  ID: 0
+
+Read mode               : Secure
+Utilize accurate stream : Yes
+Defeat audio cache      : No
+Make use of C2 pointers : No
+
+Read offset correction                      : 102
+Overread into Lead-In and Lead-Out          : Yes
+Fill up missing offset samples with silence : Yes
+Delete leading and trailing silent blocks   : No
+Null samples used in CRC calculations       : No
+Used interface                              : Native Win32 interface for Win NT & 2000
+Gap handling                                : Not detected, thus appended to previous track
+
+Used output format : Internal WAV Routines
+Sample format      : 44.100 Hz; 16 Bit; Stereo
+
+
+TOC of the extracted CD
+
+     Track |   Start  |  Length  | Start sector | End sector 
+    ---------------------------------------------------------
+        1  |  0:00.00 |  3:01.50 |         0    |    13624   
+        2  |  3:01.50 |  4:24.25 |     13625    |    33449   
+        3  |  7:26.00 |  4:13.30 |     33450    |    52454   
+        4  | 11:39.30 |  3:56.65 |     52455    |    70219   
+        5  | 15:36.20 |  4:24.52 |     70220    |    90071   
+        6  | 20:00.72 |  4:20.28 |     90072    |   109599   
+        7  | 24:21.25 |  5:41.05 |    109600    |   135179   
+        8  | 30:02.30 |  3:24.47 |    135180    |   150526   
+        9  | 33:27.02 |  4:02.33 |    150527    |   168709   
+       10  | 37:29.35 |  5:04.67 |    168710    |   191576   
+
+
+Track  1
+
+     Filename C:\EAC\BUCK-TICK\[1989.01.18] BUCK-TICK - TABOO [VDR-1579]\01. ICONOCLASM.wav
+
+     Peak level 100.0 %
+     Extraction speed 2.8 X
+     Track quality 100.0 %
+     Test CRC 67012ECC
+     Copy CRC 67012ECC
+     Cannot be verified as accurate (confidence 2)  [D8B00C8C], AccurateRip returned [8CA570EF]  (AR v2)
+     Copy OK
+
+Track  2
+
+     Filename C:\EAC\BUCK-TICK\[1989.01.18] BUCK-TICK - TABOO [VDR-1579]\02. TOKYO.wav
+
+     Peak level 100.0 %
+     Extraction speed 3.1 X
+     Track quality 100.0 %
+     Test CRC 78C29BEC
+     Copy CRC 78C29BEC
+     Cannot be verified as accurate (confidence 2)  [85FE59E3], AccurateRip returned [67774F74]  (AR v2)
+     Copy OK
+
+Track  3
+
+     Filename C:\EAC\BUCK-TICK\[1989.01.18] BUCK-TICK - TABOO [VDR-1579]\03. SEX FOR YOU.wav
+
+     Peak level 100.0 %
+     Extraction speed 3.5 X
+     Track quality 100.0 %
+     Test CRC DD0CC00A
+     Copy CRC DD0CC00A
+     Cannot be verified as accurate (confidence 2)  [3F2D9DA9], AccurateRip returned [911555B9]  (AR v2)
+     Copy OK
+
+Track  4
+
+     Filename C:\EAC\BUCK-TICK\[1989.01.18] BUCK-TICK - TABOO [VDR-1579]\04. EMBRYO.wav
+
+     Peak level 99.4 %
+     Extraction speed 3.7 X
+     Track quality 100.0 %
+     Test CRC 2FE4119E
+     Copy CRC 2FE4119E
+     Cannot be verified as accurate (confidence 2)  [AEA3CD91], AccurateRip returned [ED9A2E65]  (AR v2)
+     Copy OK
+
+Track  5
+
+     Filename C:\EAC\BUCK-TICK\[1989.01.18] BUCK-TICK - TABOO [VDR-1579]\05. ÅgJÅh.wav
+
+     Peak level 100.0 %
+     Extraction speed 4.0 X
+     Track quality 100.0 %
+     Test CRC 102DCE96
+     Copy CRC 102DCE96
+     Cannot be verified as accurate (confidence 2)  [88275860], AccurateRip returned [77E846C8]  (AR v2)
+     Copy OK
+
+Track  6
+
+     Filename C:\EAC\BUCK-TICK\[1989.01.18] BUCK-TICK - TABOO [VDR-1579]\06. FEAST OF DEMORAL IZATION.wav
+
+     Peak level 100.0 %
+     Extraction speed 4.2 X
+     Track quality 100.0 %
+     Test CRC 64331BAF
+     Copy CRC 64331BAF
+     Cannot be verified as accurate (confidence 2)  [08010154], AccurateRip returned [9E2B7813]  (AR v2)
+     Copy OK
+
+Track  7
+
+     Filename C:\EAC\BUCK-TICK\[1989.01.18] BUCK-TICK - TABOO [VDR-1579]\07. ANGELIC CONVERSATION.wav
+
+     Peak level 100.0 %
+     Extraction speed 4.5 X
+     Track quality 100.0 %
+     Test CRC D4DB4423
+     Copy CRC D4DB4423
+     Cannot be verified as accurate (confidence 3)  [44397326], AccurateRip returned [4FC5467A]  (AR v2)
+     Copy OK
+
+Track  8
+
+     Filename C:\EAC\BUCK-TICK\[1989.01.18] BUCK-TICK - TABOO [VDR-1579]\08. SILENT NIGHT.wav
+
+     Peak level 100.0 %
+     Extraction speed 4.6 X
+     Track quality 100.0 %
+     Test CRC BC3D2CFA
+     Copy CRC BC3D2CFA
+     Cannot be verified as accurate (confidence 3)  [7B8C7BD9], AccurateRip returned [00313B25]  (AR v2)
+     Copy OK
+
+Track  9
+
+     Filename C:\EAC\BUCK-TICK\[1989.01.18] BUCK-TICK - TABOO [VDR-1579]\09. TABOO.wav
+
+     Peak level 100.0 %
+     Extraction speed 4.7 X
+     Track quality 100.0 %
+     Test CRC 1EA44D3F
+     Copy CRC 1EA44D3F
+     Cannot be verified as accurate (confidence 3)  [282ADF31], AccurateRip returned [2BE62BA6]  (AR v2)
+     Copy OK
+
+Track 10
+
+     Filename C:\EAC\BUCK-TICK\[1989.01.18] BUCK-TICK - TABOO [VDR-1579]\10. JUST ONE MORE KISS.wav
+
+     Peak level 100.0 %
+     Extraction speed 5.0 X
+     Track quality 100.0 %
+     Test CRC C14AC514
+     Copy CRC C14AC514
+     Cannot be verified as accurate (confidence 2)  [BA430F75], AccurateRip returned [23252224]  (AR v2)
+     Copy OK
+
+
+No tracks could be verified as accurate
+You may have a different pressing from the one(s) in the database
+
+No errors occurred
+
+End of status report

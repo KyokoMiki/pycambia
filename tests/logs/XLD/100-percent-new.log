@@ -1,0 +1,183 @@
+X Lossless Decoder version 20141129 (148.1)
+
+XLD extraction logfile from 2015-03-01 14:53:11 +0900
+
+day after tomorrow / lost angel
+
+Used drive : TSSTcorp CDDVDW SE-218CB (revision MF00)
+Media type : Pressed CD
+
+Ripper mode             : XLD Secure Ripper
+Disable audio cache     : OK for the drive with a cache less than 1375KiB
+Make use of C2 pointers : NO
+Read offset correction  : 6
+Max retry count         : 100
+Gap status              : Analyzed, Appended
+
+TOC of the extracted CD
+     Track |   Start  |  Length  | Start sector | End sector 
+    ---------------------------------------------------------
+        1  | 00:00:00 | 05:15:60 |         0    |    23684   
+        2  | 05:15:60 | 04:20:12 |     23685    |    43196   
+        3  | 09:35:72 | 06:02:28 |     43197    |    70374   
+        4  | 15:38:25 | 05:15:62 |     70375    |    94061   
+        5  | 20:54:12 | 04:20:58 |     94062    |   113619   
+        6  | 25:14:70 | 05:58:47 |    113620    |   140516   
+        7  | 33:45:42 | 40:12:33 |    151917    |   332849   
+
+List of alternate offset correction values
+        #  | Absolute | Relative | Confidence 
+    ------------------------------------------
+        1  |   -253   |   -259   |      2     
+
+AccurateRip Summary (DiscID: 000a579d-003c205a-53115607)
+    Track 01 : OK (v1+v2, confidence 2/3, with different offset)
+    Track 02 : OK (v1+v2, confidence 2/3, with different offset)
+    Track 03 : OK (v1+v2, confidence 2/3, with different offset)
+    Track 04 : NG (total 2 submissions)
+    Track 05 : NG (total 2 submissions)
+    Track 06 : NG (total 2 submissions)
+        ->3 tracks accurately ripped, 3 tracks not
+
+All Tracks
+    Album gain               : -10.79 dB
+    Peak                     : 1.000000
+    Statistics
+        Read error                           : 0
+        Jitter error (maybe fixed)           : 0
+        Retry sector count                   : 0
+        Damaged sector count                 : 0
+
+Track 01
+    Filename : /XLD rips/day after tomorrow - 2004 - lost angel [V0]/01 lost angel.mp3
+               /XLD rips/day after tomorrow - 2004 - lost angel [V2]/01 lost angel.mp3
+               /XLD rips/day after tomorrow - 2004 - lost angel [320]/01 lost angel.mp3
+               /XLD rips/day after tomorrow - 2004 - lost angel [FLAC]/01 lost angel.flac
+    Pre-gap length : 00:02:00
+
+    Track gain               : -11.60 dB
+    Peak                     : 1.000000
+    CRC32 hash (test run)    : E7395AB0
+    CRC32 hash               : E7395AB0
+    CRC32 hash (skip zero)   : 8FA32428
+    AccurateRip v1 signature : AF183141 (29661F65 w/correction)
+    AccurateRip v2 signature : BF8EE1F9 (A2BA28B7 w/correction)
+        ->Accurately ripped with different offset (v1+v2, confidence 1+1/3, offset -259)
+    Statistics
+        Read error                           : 0
+        Jitter error (maybe fixed)           : 0
+        Retry sector count                   : 0
+        Damaged sector count                 : 0
+
+Track 02
+    Filename : /XLD rips/day after tomorrow - 2004 - lost angel [V0]/02 そして僕にできるコト.mp3
+               /XLD rips/day after tomorrow - 2004 - lost angel [V2]/02 そして僕にできるコト.mp3
+               /XLD rips/day after tomorrow - 2004 - lost angel [320]/02 そして僕にできるコト.mp3
+               /XLD rips/day after tomorrow - 2004 - lost angel [FLAC]/02 そして僕にできるコト.flac
+    Pre-gap length : 00:03:15
+
+    Track gain               : -11.38 dB
+    Peak                     : 0.981354
+    CRC32 hash (test run)    : 9528C507
+    CRC32 hash               : 9528C507
+    CRC32 hash (skip zero)   : 5C8B7ECF
+    AccurateRip v1 signature : 029184C7 (8E5A2EAF w/correction)
+    AccurateRip v2 signature : 1543835C (F6D16C24 w/correction)
+        ->Accurately ripped with different offset (v1+v2, confidence 1+1/3, offset -259)
+    Statistics
+        Read error                           : 0
+        Jitter error (maybe fixed)           : 0
+        Retry sector count                   : 0
+        Damaged sector count                 : 0
+
+Track 03
+    Filename : /XLD rips/day after tomorrow - 2004 - lost angel [V0]/03 more than a million miles.mp3
+               /XLD rips/day after tomorrow - 2004 - lost angel [V2]/03 more than a million miles.mp3
+               /XLD rips/day after tomorrow - 2004 - lost angel [320]/03 more than a million miles.mp3
+               /XLD rips/day after tomorrow - 2004 - lost angel [FLAC]/03 more than a million miles.flac
+    Pre-gap length : 00:03:15
+
+    Track gain               : -10.49 dB
+    Peak                     : 0.981354
+    CRC32 hash (test run)    : 229A0522
+    CRC32 hash               : 229A0522
+    CRC32 hash (skip zero)   : 53FF78D8
+    AccurateRip v1 signature : 4B2A9E23 (E7BB3EE4 w/correction)
+    AccurateRip v2 signature : 3BD92B68 (525AA43F w/correction)
+        ->Accurately ripped with different offset (v1+v2, confidence 1+1/3, offset -259)
+    Statistics
+        Read error                           : 0
+        Jitter error (maybe fixed)           : 0
+        Retry sector count                   : 0
+        Damaged sector count                 : 0
+
+Track 04
+    Filename : /XLD rips/day after tomorrow - 2004 - lost angel [V0]/04 lost angel -Instrumental-.mp3
+               /XLD rips/day after tomorrow - 2004 - lost angel [V2]/04 lost angel -Instrumental-.mp3
+               /XLD rips/day after tomorrow - 2004 - lost angel [320]/04 lost angel -Instrumental-.mp3
+               /XLD rips/day after tomorrow - 2004 - lost angel [FLAC]/04 lost angel -Instrumental-.flac
+    Pre-gap length : 00:03:50
+
+    Track gain               : -9.83 dB
+    Peak                     : 1.000000
+    CRC32 hash (test run)    : C8650128
+    CRC32 hash               : C8650128
+    CRC32 hash (skip zero)   : 826CE4B3
+    AccurateRip v1 signature : D259091B
+    AccurateRip v2 signature : A411D2AC
+        ->Rip may not be accurate (total 2 submissions).
+    Statistics
+        Read error                           : 0
+        Jitter error (maybe fixed)           : 0
+        Retry sector count                   : 0
+        Damaged sector count                 : 0
+
+Track 05
+    Filename : /XLD rips/day after tomorrow - 2004 - lost angel [V0]/05 そして僕にできるコト -Instrumental-.mp3
+               /XLD rips/day after tomorrow - 2004 - lost angel [V2]/05 そして僕にできるコト -Instrumental-.mp3
+               /XLD rips/day after tomorrow - 2004 - lost angel [320]/05 そして僕にできるコト -Instrumental-.mp3
+               /XLD rips/day after tomorrow - 2004 - lost angel [FLAC]/05 そして僕にできるコト -Instrumental-.flac
+    Pre-gap length : 00:03:21
+
+    Track gain               : -9.76 dB
+    Peak                     : 0.981354
+    CRC32 hash (test run)    : B1893104
+    CRC32 hash               : B1893104
+    CRC32 hash (skip zero)   : 08538D93
+    AccurateRip v1 signature : A5E2E572
+    AccurateRip v2 signature : 4A80620A
+        ->Rip may not be accurate (total 2 submissions).
+    Statistics
+        Read error                           : 0
+        Jitter error (maybe fixed)           : 0
+        Retry sector count                   : 0
+        Damaged sector count                 : 0
+
+Track 06
+    Filename : /XLD rips/day after tomorrow - 2004 - lost angel [V0]/06 more than a million miles -Instrumental-.mp3
+               /XLD rips/day after tomorrow - 2004 - lost angel [V2]/06 more than a million miles -Instrumental-.mp3
+               /XLD rips/day after tomorrow - 2004 - lost angel [320]/06 more than a million miles -Instrumental-.mp3
+               /XLD rips/day after tomorrow - 2004 - lost angel [FLAC]/06 more than a million miles -Instrumental-.flac
+    Pre-gap length : 00:03:19
+
+    Track gain               : -9.15 dB
+    Peak                     : 0.981354
+    CRC32 hash (test run)    : 2622A30E
+    CRC32 hash               : 2622A30E
+    CRC32 hash (skip zero)   : D1B82354
+    AccurateRip v1 signature : 2FE5C720
+    AccurateRip v2 signature : C4585AB0
+        ->Rip may not be accurate (total 2 submissions).
+    Statistics
+        Read error                           : 0
+        Jitter error (maybe fixed)           : 0
+        Retry sector count                   : 0
+        Damaged sector count                 : 0
+
+No errors occurred
+
+End of status report
+
+-----BEGIN XLD SIGNATURE-----
+mKslP8nONTI5dtFC5nLN8QuksntAeuMgIpHsj1SFSV7X2ROo3FTSJu4x9RIp18F.rrbFt0PgwjfOlKX7pUBQDt7A2g2AG71ZHn7EiaW
+-----END XLD SIGNATURE-----
