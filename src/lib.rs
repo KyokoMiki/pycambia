@@ -3,13 +3,27 @@ mod py_classes;
 use pyo3::prelude::*;
 use pyo3::types::PyModule;
 
-use py_classes::PyCambiaResponse;
+use py_classes::{PyCambiaResponse, PyRipper};
 
 /// Parse a CD ripping log file and return typed Python objects.
+///
+/// Accepts either a string path or a PathLike object (e.g., pathlib.Path).
 #[pyfunction]
-fn parse_log_file(py: Python<'_>, path: String) -> PyResult<PyCambiaResponse> {
+fn parse_log_file(py: Python<'_>, path: &Bound<'_, PyAny>) -> PyResult<PyCambiaResponse> {
+    // Try to extract as PathBuf first (handles pathlib.Path and similar)
+    let path_buf: std::path::PathBuf = if let Ok(p) = path.extract::<std::path::PathBuf>() {
+        p
+    } else if let Ok(s) = path.extract::<String>() {
+        // Fallback to string extraction
+        std::path::PathBuf::from(s)
+    } else {
+        return Err(PyErr::new::<pyo3::exceptions::PyTypeError, _>(
+            "path must be str or PathLike",
+        ));
+    };
+
     let response = py.detach(|| {
-        let raw = std::fs::read(&path).map_err(|e| {
+        let raw = std::fs::read(&path_buf).map_err(|e| {
             PyErr::new::<pyo3::exceptions::PyOSError, _>(format!("Could not read file: {}", e))
         })?;
         cambia_core::handler::parse_log_bytes(Vec::new(), &raw).map_err(|e| {
@@ -45,12 +59,12 @@ fn parse_log_content(content: &Bound<'_, PyAny>) -> PyResult<PyCambiaResponse> {
 
 /// Get supported log file formats.
 #[pyfunction]
-fn get_supported_rippers() -> PyResult<Vec<String>> {
+fn get_supported_rippers() -> PyResult<Vec<PyRipper>> {
     #[allow(unused_mut)]
-    let mut rippers = vec!["EAC".to_string(), "XLD".to_string(), "whipper".to_string()];
+    let mut rippers = vec![PyRipper::EAC, PyRipper::XLD, PyRipper::Whipper];
 
     #[cfg(feature = "experimental_rippers")]
-    rippers.push("CUERipper".to_string());
+    rippers.push(PyRipper::CueRipper);
 
     Ok(rippers)
 }

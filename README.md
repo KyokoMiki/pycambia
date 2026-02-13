@@ -2,8 +2,8 @@
 
 [![PyPI version](https://badgen.net/pypi/v/pycambia)](https://pypi.org/project/pycambia/)
 [![PyPI - Python Version](https://badgen.net/pypi/python/pycambia)](https://pypi.org/project/pycambia/)
-[![CI](https://github.com/KyokoMiki/pycambia/actions/workflows/python-package.yml/badge.svg)](https://github.com/KyokoMiki/pycambia/actions/workflows/python-package.yml)
-[![License: MIT](https://badgen.net/github/license/KyokoMiki/pycambia)](https://opensource.org/licenses/MIT)
+[![CI](https://github.com/KyokoMiki/pycambia/actions/workflows/build-and-publish.yml/badge.svg)](https://github.com/KyokoMiki/pycambia/actions/workflows/build-and-publish.yml)
+[![License: MIT](https://badgen.net/github/license/KyokoMiki/pycambia)](https://github.com/KyokoMiki/pycambia/blob/master/LICENSE)
 
 Python bindings for [cambia](https://github.com/arg274/cambia), a CD rip log parser and evaluator written in Rust. Parse and score rip logs from EAC, XLD, whipper, and more.
 
@@ -21,7 +21,7 @@ Requires Python 3.10+. Pre-built wheels are available for Linux (x86_64, aarch64
 import cambia
 
 # Parse a log file
-result = cambia.parse_file("/path/to/eac.log")
+result = cambia.parse_log_file("/path/to/eac.log")
 
 # Access parsed data
 log = result.parsed.parsed_logs[0]
@@ -37,45 +37,51 @@ print(f"Score: {score}")
 
 ## API Reference
 
-### `cambia.parse_file(file_path)`
+### `cambia.parse_log_file(path)`
 
 Parse a CD rip log file from disk.
 
-- **file_path** (`str`) – Path to the log file
+- **path** (`str | PathLike`) – Path to the log file. Accepts string paths or PathLike objects (e.g., `pathlib.Path`)
 - **Returns**: `CambiaResponse`
-- **Raises**: `OSError` if the file cannot be read, `ValueError` if parsing fails
+- **Raises**: `OSError` if the file cannot be read, `ValueError` if parsing fails, `TypeError` if path is not `str` or PathLike
 
 ```python
-result = cambia.parse_file("/path/to/eac.log")
+# Using string path
+result = cambia.parse_log_file("/path/to/eac.log")
+
+# Using pathlib.Path
+from pathlib import Path
+result = cambia.parse_log_file(Path("/path/to/eac.log"))
 ```
 
-### `cambia.parse_content(content)`
+### `cambia.parse_log_content(content)`
 
 Parse log content from a string or bytes.
 
-- **content** (`str | bytes`) – Log file content. When `bytes`, the encoding is auto-detected.
+- **content** (`str | bytes`) – Log file content. When `bytes`, the encoding is auto-detected by cambia-core.
 - **Returns**: `CambiaResponse`
 - **Raises**: `ValueError` if parsing fails, `TypeError` if content is not `str` or `bytes`
 
 ```python
-# From string
+# From string (converted to UTF-8 bytes)
 with open("/path/to/xld.log", "r", encoding="utf-8") as f:
-    result = cambia.parse_content(f.read())
+    result = cambia.parse_log_content(f.read())
 
 # From bytes (auto-detects encoding)
 with open("/path/to/eac.log", "rb") as f:
-    result = cambia.parse_content(f.read())
+    result = cambia.parse_log_content(f.read())
 ```
 
-### `cambia.supported_rippers()`
+### `cambia.get_supported_rippers()`
 
-Get list of supported CD ripper log types.
+Get list of supported CD ripper types.
 
-- **Returns**: `list[str]`
+- **Returns**: `list[Ripper]` – List of `Ripper` enum values
 
 ```python
->>> cambia.supported_rippers()
-['EAC', 'XLD', 'whipper']
+>>> rippers = cambia.get_supported_rippers()
+>>> [r.name for r in rippers]
+['EAC', 'XLD', 'Whipper', 'CueRipper']
 ```
 
 ## Return Types
@@ -155,7 +161,7 @@ All enums have `name` (variant name) and `value` (human-readable label) attribut
 ```python
 import cambia
 
-result = cambia.parse_file("/path/to/eac.log")
+result = cambia.parse_log_file("/path/to/eac.log")
 log = result.parsed.parsed_logs[0]
 
 # Ripper info
@@ -176,7 +182,7 @@ print(f"Checksum integrity: {log.checksum.integrity.name}")
 ### Track Details
 
 ```python
-result = cambia.parse_file("/path/to/eac.log")
+result = cambia.parse_log_file("/path/to/eac.log")
 log = result.parsed.parsed_logs[0]
 
 for track in log.tracks:
@@ -199,7 +205,7 @@ for track in log.tracks:
 ### Evaluation Score
 
 ```python
-result = cambia.parse_file("/path/to/eac.log")
+result = cambia.parse_log_file("/path/to/eac.log")
 
 for eval_combined in result.evaluation_combined:
     print(f"Evaluator: {eval_combined.evaluator.name}")
@@ -219,19 +225,19 @@ import cambia
 
 # File not found
 try:
-    result = cambia.parse_file("nonexistent.log")
+    result = cambia.parse_log_file("nonexistent.log")
 except OSError as e:
     print(f"File error: {e}")
 
 # Invalid or unsupported content
 try:
-    result = cambia.parse_content("not a valid log")
+    result = cambia.parse_log_content("not a valid log")
 except ValueError as e:
     print(f"Parse error: {e}")
 
 # Wrong argument type
 try:
-    result = cambia.parse_content(12345)
+    result = cambia.parse_log_content(12345)
 except TypeError as e:
     print(f"Type error: {e}")
 ```
@@ -244,7 +250,7 @@ Reading as bytes lets cambia-core handle encoding detection automatically:
 # Read as bytes for automatic encoding detection
 with open("/path/to/eac.log", "rb") as f:
     raw = f.read()
-result = cambia.parse_content(raw)
+result = cambia.parse_log_content(raw)
 
 print(f"Detected encoding: {result.parsed.encoding}")
 ```
@@ -255,7 +261,7 @@ print(f"Detected encoding: {result.parsed.encoding}")
 | --------- | ----------------- | ----------------------------------------------- |
 | EAC       | ✅ Stable          | Exact Audio Copy – Windows CD ripper            |
 | XLD       | ✅ Stable          | X Lossless Decoder – macOS CD ripper            |
-| whipper   | ✅ Stable          | Command-line CD ripper (successor to morituri)  |
+| Whipper   | ✅ Stable          | Command-line CD ripper (successor to morituri)  |
 | CueRipper | ⚠️ Experimental   | Windows CD ripper                               |
 
 ## Development
@@ -264,7 +270,8 @@ print(f"Detected encoding: {result.parsed.encoding}")
 
 - [Rust](https://www.rust-lang.org/tools/install) (stable toolchain)
 - [Python 3.10+](https://www.python.org/downloads/)
-- [maturin](https://github.com/PyO3/maturin) (build tool for PyO3)
+- [uv](https://docs.astral.sh/uv/) (Python package manager)
+- [maturin](https://github.com/PyO3/maturin) (build tool for PyO3, installed via uv)
 
 ### Setup
 
@@ -285,13 +292,25 @@ uv run pytest -v
 ### Building for Distribution
 
 ```sh
-# Build wheel
-maturin build --release
+# Build wheel for current platform
+uv run maturin build --release
 
 # Build and publish to PyPI
-maturin publish
+uv run maturin publish
+```
+
+### Features
+
+The project uses Cargo features to control functionality:
+
+- `experimental_rippers` (default): Enables support for experimental rippers like CueRipper
+
+To build without experimental rippers:
+
+```sh
+uv run maturin develop --no-default-features
 ```
 
 ## License
 
-[MIT](LICENSE)
+[MIT](https://github.com/KyokoMiki/pycambia/blob/master/LICENSE)

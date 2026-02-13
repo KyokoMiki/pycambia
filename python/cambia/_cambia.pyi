@@ -366,11 +366,11 @@ def parse_log_content(content: str | bytes) -> CambiaResponse:
     """
     ...
 
-def get_supported_rippers() -> list[str]:
+def get_supported_rippers() -> list[Ripper]:
     """Get list of supported CD ripper log types.
 
     Returns:
-        List of supported CD ripper type names.
+        List of supported Ripper enum members.
     """
     ...
 
