@@ -27,7 +27,7 @@ fn time_to_duration(time: &Time) -> std::time::Duration {
 
 // ============= Enums =============
 
-#[pyclass(name = "Ripper", eq, eq_int)]
+#[pyclass(name = "Ripper", eq, eq_int, skip_from_py_object)]
 #[derive(Clone, PartialEq)]
 pub enum PyRipper {
     EAC,
@@ -106,7 +106,7 @@ impl From<&Ripper> for PyRipper {
     }
 }
 
-#[pyclass(name = "MediaType", eq, eq_int)]
+#[pyclass(name = "MediaType", eq, eq_int, skip_from_py_object)]
 #[derive(Clone, PartialEq)]
 pub enum PyMediaType {
     Pressed,
@@ -157,7 +157,7 @@ impl From<&MediaType> for PyMediaType {
     }
 }
 
-#[pyclass(name = "Quartet", eq, eq_int)]
+#[pyclass(name = "Quartet", eq, eq_int, skip_from_py_object)]
 #[derive(Clone, PartialEq)]
 pub enum PyQuartet {
     #[pyo3(name = "TRUE")]
@@ -208,7 +208,7 @@ impl From<&Quartet> for PyQuartet {
     }
 }
 
-#[pyclass(name = "ReadMode", eq, eq_int)]
+#[pyclass(name = "ReadMode", eq, eq_int, skip_from_py_object)]
 #[derive(Clone, PartialEq)]
 pub enum PyReadMode {
     Secure,
@@ -263,7 +263,7 @@ impl From<&ReadMode> for PyReadMode {
     }
 }
 
-#[pyclass(name = "Gap", eq, eq_int)]
+#[pyclass(name = "Gap", eq, eq_int, skip_from_py_object)]
 #[derive(Clone, PartialEq)]
 pub enum PyGap {
     Append,
@@ -326,7 +326,7 @@ impl From<&Gap> for PyGap {
     }
 }
 
-#[pyclass(name = "Integrity", eq, eq_int)]
+#[pyclass(name = "Integrity", eq, eq_int, skip_from_py_object)]
 #[derive(Clone, PartialEq)]
 pub enum PyIntegrity {
     Match,
@@ -373,7 +373,7 @@ impl From<&Integrity> for PyIntegrity {
     }
 }
 
-#[pyclass(name = "AccurateRipStatus", eq, eq_int)]
+#[pyclass(name = "AccurateRipStatus", eq, eq_int, skip_from_py_object)]
 #[derive(Clone, PartialEq)]
 pub enum PyAccurateRipStatus {
     Match,
@@ -428,7 +428,7 @@ impl From<&AccurateRipStatus> for PyAccurateRipStatus {
     }
 }
 
-#[pyclass(name = "EvaluatorType", eq, eq_int)]
+#[pyclass(name = "EvaluatorType", eq, eq_int, skip_from_py_object)]
 #[derive(Clone, PartialEq)]
 pub enum PyEvaluatorType {
     Cambia,
@@ -477,7 +477,7 @@ impl From<&EvaluatorType> for PyEvaluatorType {
 
 // ============= TOC Classes =============
 
-#[pyclass(name = "TocEntry")]
+#[pyclass(name = "TocEntry", skip_from_py_object)]
 #[derive(Clone)]
 pub struct PyTocEntry {
     #[pyo3(get)]
@@ -514,7 +514,7 @@ impl PyTocEntry {
     }
 }
 
-#[pyclass(name = "TocHash")]
+#[pyclass(name = "TocHash", skip_from_py_object)]
 #[derive(Clone)]
 pub struct PyTocHash {
     #[pyo3(get)]
@@ -539,7 +539,7 @@ impl PyTocHash {
     }
 }
 
-#[pyclass(name = "TocRaw")]
+#[pyclass(name = "TocRaw", skip_from_py_object)]
 #[derive(Clone)]
 pub struct PyTocRaw {
     #[pyo3(get)]
@@ -561,7 +561,7 @@ impl PyTocRaw {
     }
 }
 
-#[pyclass(name = "Toc")]
+#[pyclass(name = "Toc", skip_from_py_object)]
 #[derive(Clone)]
 pub struct PyToc {
     #[pyo3(get)]
@@ -603,7 +603,7 @@ impl PyToc {
 
 // ============= Checksum and Integrity =============
 
-#[pyclass(name = "Checksum")]
+#[pyclass(name = "Checksum", skip_from_py_object)]
 #[derive(Clone)]
 pub struct PyChecksum {
     #[pyo3(get)]
@@ -633,7 +633,7 @@ impl PyChecksum {
 
 // ============= Release Info =============
 
-#[pyclass(name = "ReleaseInfo")]
+#[pyclass(name = "ReleaseInfo", skip_from_py_object)]
 #[derive(Clone)]
 pub struct PyReleaseInfo {
     #[pyo3(get)]
@@ -663,7 +663,7 @@ impl PyReleaseInfo {
 
 // ============= Track Classes =============
 
-#[pyclass(name = "TrackErrorRange")]
+#[pyclass(name = "TrackErrorRange", skip_from_py_object)]
 #[derive(Clone)]
 pub struct PyTrackErrorRange {
     #[pyo3(get)]
@@ -691,7 +691,7 @@ impl PyTrackErrorRange {
     }
 }
 
-#[pyclass(name = "TrackErrorData")]
+#[pyclass(name = "TrackErrorData", skip_from_py_object)]
 #[derive(Clone)]
 pub struct PyTrackErrorData {
     #[pyo3(get)]
@@ -716,7 +716,7 @@ impl PyTrackErrorData {
     }
 }
 
-#[pyclass(name = "TrackError")]
+#[pyclass(name = "TrackError", skip_from_py_object)]
 #[derive(Clone)]
 pub struct PyTrackError {
     #[pyo3(get)]
@@ -771,7 +771,7 @@ impl PyTrackError {
     }
 }
 
-#[pyclass(name = "AccurateRipConfidence")]
+#[pyclass(name = "AccurateRipConfidence", skip_from_py_object)]
 #[derive(Clone)]
 pub struct PyAccurateRipConfidence {
     #[pyo3(get)]
@@ -814,7 +814,7 @@ impl PyAccurateRipConfidence {
     }
 }
 
-#[pyclass(name = "AccurateRipUnit")]
+#[pyclass(name = "AccurateRipUnit", skip_from_py_object)]
 #[derive(Clone)]
 pub struct PyAccurateRipUnit {
     #[pyo3(get)]
@@ -845,7 +845,7 @@ impl PyAccurateRipUnit {
     }
 }
 
-#[pyclass(name = "TestAndCopy")]
+#[pyclass(name = "TestAndCopy", skip_from_py_object)]
 #[derive(Clone)]
 pub struct PyTestAndCopy {
     #[pyo3(get)]
@@ -873,7 +873,7 @@ impl PyTestAndCopy {
     }
 }
 
-#[pyclass(name = "TrackEntry")]
+#[pyclass(name = "TrackEntry", skip_from_py_object)]
 #[derive(Clone)]
 pub struct PyTrackEntry {
     #[pyo3(get)]
@@ -930,7 +930,7 @@ impl PyTrackEntry {
 
 // ============= Parsed Log =============
 
-#[pyclass(name = "ParsedLog")]
+#[pyclass(name = "ParsedLog", skip_from_py_object)]
 #[derive(Clone)]
 pub struct PyParsedLog {
     #[pyo3(get)]
@@ -1029,7 +1029,7 @@ impl PyParsedLog {
 
 // ============= Parsed Combined =============
 
-#[pyclass(name = "ParsedLogCombined")]
+#[pyclass(name = "ParsedLogCombined", skip_from_py_object)]
 #[derive(Clone)]
 pub struct PyParsedLogCombined {
     #[pyo3(get)]
@@ -1066,7 +1066,7 @@ impl PyParsedLogCombined {
 
 // ============= Evaluation Classes =============
 
-#[pyclass(name = "EvaluationUnitScope")]
+#[pyclass(name = "EvaluationUnitScope", skip_from_py_object)]
 #[derive(Clone, PartialEq)]
 pub enum PyEvaluationUnitScope {
     Release(),
@@ -1107,7 +1107,7 @@ impl From<&EvaluationUnitScope> for PyEvaluationUnitScope {
     }
 }
 
-#[pyclass(name = "EvaluationUnitField")]
+#[pyclass(name = "EvaluationUnitField", skip_from_py_object)]
 #[derive(Clone, PartialEq)]
 pub enum PyEvaluationUnitField {
     Encoding,
@@ -1286,7 +1286,7 @@ impl From<&EvaluationUnitField> for PyEvaluationUnitField {
     }
 }
 
-#[pyclass(name = "EvaluationUnitClass")]
+#[pyclass(name = "EvaluationUnitClass", skip_from_py_object)]
 #[derive(Clone, PartialEq)]
 pub enum PyEvaluationUnitClass {
     Critical,
@@ -1341,7 +1341,7 @@ impl From<&EvaluationUnitClass> for PyEvaluationUnitClass {
     }
 }
 
-#[pyclass(name = "EvaluationUnitData")]
+#[pyclass(name = "EvaluationUnitData", skip_from_py_object)]
 #[derive(Clone)]
 pub struct PyEvaluationUnitData {
     #[pyo3(get)]
@@ -1376,7 +1376,7 @@ impl PyEvaluationUnitData {
     }
 }
 
-#[pyclass(name = "EvaluationUnit")]
+#[pyclass(name = "EvaluationUnit", skip_from_py_object)]
 #[derive(Clone)]
 pub struct PyEvaluationUnit {
     #[pyo3(get)]
@@ -1401,7 +1401,7 @@ impl PyEvaluationUnit {
     }
 }
 
-#[pyclass(name = "Evaluation")]
+#[pyclass(name = "Evaluation", skip_from_py_object)]
 #[derive(Clone)]
 pub struct PyEvaluation {
     #[pyo3(get)]
@@ -1436,7 +1436,7 @@ impl PyEvaluation {
     }
 }
 
-#[pyclass(name = "EvaluationCombined")]
+#[pyclass(name = "EvaluationCombined", skip_from_py_object)]
 #[derive(Clone)]
 pub struct PyEvaluationCombined {
     #[pyo3(get)]
@@ -1476,7 +1476,7 @@ impl PyEvaluationCombined {
 
 // ============= Main Response Classes =============
 
-#[pyclass(name = "CambiaResponse")]
+#[pyclass(name = "CambiaResponse", skip_from_py_object)]
 #[derive(Clone)]
 pub struct PyCambiaResponse {
     pub id: Vec<u8>,
