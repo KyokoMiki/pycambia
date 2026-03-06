@@ -13,8 +13,8 @@ experimental_rippers = ["cambia-core/experimental_rippers"]
 
 [dependencies]
 cambia-core = { git = "https://github.com/arg274/cambia", branch = "master" }
-pyo3 = { version = "0.27", features = ["extension-module", "abi3-py310"] }
-pythonize = "0.27"
+pyo3 = { version = "0.28", features = ["extension-module", "abi3-py310"] }
+pythonize = "0.28"
 serde_json = "1.0"
 
 [profile.release]
